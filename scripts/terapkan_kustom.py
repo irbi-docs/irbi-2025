@@ -182,18 +182,66 @@ def terapkan_tampilan(p: dict, coba: bool, laporan: list[str]):
 
 
 # ---------------------------------------------------------------------------------------------- teks
+# Paket bisa berasal dari orang lain, jadi isinya diperlakukan sebagai masukan tak tepercaya:
+# - halaman hanya boleh menunjuk berkas .qmd di dalam proyek (tidak bisa keluar lewat '../' atau symlink);
+# - teks ditulis harfiah: tanda baca Markdown di-escape sehingga paket tidak bisa menyisipkan HTML mentah,
+#   shortcode Quarto ({{< env ... >}}), blok/atribut mentah ({=html}), atau tautan javascript: ke situs.
+HALAMAN_SAH = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]*(?:/[A-Za-z0-9][A-Za-z0-9_-]*)*\.html")
+TANDA_MD = re.compile(r"([\\`*_\[\]{}<>!#$&@^~|])")
+
+
+def berkas_qmd(halaman) -> Path | None:
+    """'provinsi/aceh.html' -> ROOT/provinsi/aceh.qmd, atau None bila bukan halaman sumber proyek ini."""
+    if not isinstance(halaman, str):
+        return None
+    if halaman.endswith("/"):
+        halaman += "index.html"
+    if not HALAMAN_SAH.fullmatch(halaman):
+        return None
+    qmd = (ROOT / halaman).with_suffix(".qmd").resolve()
+    return qmd if qmd.is_relative_to(ROOT) and qmd.is_file() else None
+
+
+def tautan_aman(href: str) -> str | None:
+    """Hanya http(s), mailto, atau tautan relatif; skema lain (javascript:, data:, ...) ditolak."""
+    url = re.sub(r"[\x00-\x20\x7f]", "", html.unescape(href))
+    if re.match(r"[A-Za-z][A-Za-z0-9+.-]*:", url) and not re.match(r"(?i)(https?|mailto):", url):
+        return None
+    return re.sub(r"[()<>{}\[\]\\`\"']", lambda m: f"%{ord(m.group()):02X}", url)
+
+
 def html_ke_md(h: str) -> str:
-    h = re.sub(r"<br\s*/?>", " ", h, flags=re.I)
-    h = re.sub(r"<(b|strong)>(.*?)</\1>", r"**\2**", h, flags=re.I | re.S)
-    h = re.sub(r"<(i|em)>(.*?)</\1>", r"*\2*", h, flags=re.I | re.S)
-    h = re.sub(r"<code>(.*?)</code>", r"`\1`", h, flags=re.I | re.S)
-    h = re.sub(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', r"[\2](\1)", h, flags=re.I | re.S)
-    h = re.sub(r"<[^>]+>", "", h)
-    return re.sub(r"\s+", " ", html.unescape(h)).strip()
+    """HTML dari editor Studio -> satu baris Markdown. Tebal, miring, dan tautan aman dipertahankan;
+    tag lain (termasuk <code>, karena Quarto tetap menjalankan shortcode di dalam kode) dibuang dan
+    semua teks di-escape sehingga tampil apa adanya."""
+    keluar, tautan = [], []
+    for i, bagian in enumerate(re.split(r"(<[^>]*>)", h)):
+        if i % 2 == 0:
+            keluar.append(TANDA_MD.sub(r"\\\1", html.unescape(bagian)))
+            continue
+        m = re.match(r"<\s*(/?)\s*([A-Za-z0-9]+)", bagian)
+        tutup, tag = (m.group(1) == "/", m.group(2).lower()) if m else (False, "")
+        if tag in ("b", "strong"):
+            keluar.append("**")
+        elif tag in ("i", "em"):
+            keluar.append("*")
+        elif tag == "br":
+            keluar.append(" ")
+        elif tag == "a" and not tutup:
+            href = re.search(r'href\s*=\s*"([^"]*)"', bagian, re.I)
+            tautan.append(tautan_aman(href.group(1)) if href else None)
+            if tautan[-1] is not None:
+                keluar.append("[")
+        elif tag == "a" and tautan:
+            url = tautan.pop()
+            if url is not None:
+                keluar.append(f"]({url})")
+    return re.sub(r"\s+", " ", "".join(keluar)).strip()
 
 
 def polos(md: str) -> str:
-    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", md)
+    t = re.sub(r"\\([^\w\s])", r"\1", md)          # buang escape Markdown dulu
+    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)
     t = re.sub(r"[*_`]", "", t)
     t = re.sub(r"\{[^}]*\}", "", t)
     return re.sub(r"\s+", " ", t).strip()
@@ -206,12 +254,16 @@ def terapkan_teks(p: dict, coba: bool, laporan: list[str]):
     teks = {k: v for k, v in (p.get("teks") or {}).items() if v}
     ok, gagal = 0, []
     for kunci, e in teks.items():
+        e = e if isinstance(e, dict) else {}
         halaman = e.get("halaman") or kunci.split("::")[0]
-        qmd = ROOT / re.sub(r"\.html$", ".qmd", halaman)
-        asli = polos(e.get("asli") or "")
-        baru = html_ke_md(e.get("html") or "")
-        if not qmd.exists() or not asli:
-            gagal.append(f"{halaman}: berkas sumber tidak ditemukan")
+        qmd = berkas_qmd(halaman)
+        asli = polos(str(e.get("asli") or ""))
+        baru = html_ke_md(str(e.get("html") or ""))
+        if qmd is None:
+            gagal.append(f"{halaman!r}: bukan halaman sumber di proyek ini, dilewati")
+            continue
+        if not asli:
+            gagal.append(f"{halaman}: teks asli kosong")
             continue
         isi = qmd.read_text(encoding="utf-8")
         blok = re.split(r"(\n\s*\n)", isi)
