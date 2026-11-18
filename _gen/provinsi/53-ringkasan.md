@@ -1,0 +1,7 @@
+```{=html}
+<div class="irbi-kartu-grid" data-kartu="prov:53"><div class="irbi-kartu kelas-tinggi"><div class="irbi-kartu-label">Nilai IRB 2025</div><div class="irbi-kartu-nilai">197,43</div><div class="irbi-kartu-sub">Kelas Tinggi</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Peringkat provinsi</div><div class="irbi-kartu-nilai">7 / 38</div><div class="irbi-kartu-sub">urut dari skor tertinggi</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Jumlah kabupaten/kota</div><div class="irbi-kartu-nilai">22</div><div class="irbi-kartu-sub">19 tinggi · 3 sedang</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Skor kab/kota tertinggi</div><div class="irbi-kartu-nilai">241,90</div><div class="irbi-kartu-sub">Manggarai</div></div></div>
+```
+
+```{=typst}
+#irbi-kartu((("Nilai IRB 2025", "197,43", "Kelas Tinggi", "TINGGI"), ("Peringkat provinsi", "7 / 38", "urut dari skor tertinggi", ""), ("Jumlah kabupaten/kota", "22", "19 tinggi · 3 sedang", ""), ("Skor kab/kota tertinggi", "241,90", "Manggarai", ""),))
+```

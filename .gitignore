@@ -1,7 +1,8 @@
-# Hasil render & berkas yang dibuat otomatis oleh scripts/bangun.py
+# Hasil render & berkas yang dibuat otomatis oleh scripts/bangun.py.
+# _gen/ sengaja TIDAK diabaikan: Quarto membaca berkas {{< include >}} sebelum skrip pre-render
+# berjalan, jadi clone baru membutuhkannya agar `quarto render` bisa langsung jalan.
 /_book/
 /.quarto/
-/_gen/
 /peta/
 /assets/data/
 # Alat lokal & berkas kerja

@@ -1,0 +1,7 @@
+```{=html}
+<div class="irbi-kartu-grid" data-kartu="nasional"><div class="irbi-kartu "><div class="irbi-kartu-label">Rata-rata IRBI kab/kota</div><div class="irbi-kartu-nilai">147,94</div><div class="irbi-kartu-sub">dihitung dari tabel 514 kab/kota</div></div><div class="irbi-kartu kelas-tinggi"><div class="irbi-kartu-label">Kab/kota kelas tinggi</div><div class="irbi-kartu-nilai">169</div><div class="irbi-kartu-sub">345 sedang · 0 rendah</div></div><div class="irbi-kartu kelas-tinggi"><div class="irbi-kartu-label">Provinsi kelas tinggi</div><div class="irbi-kartu-nilai">15</div><div class="irbi-kartu-sub">23 sedang · 0 rendah</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Skor kab/kota tertinggi</div><div class="irbi-kartu-nilai">278,51</div><div class="irbi-kartu-sub">Halmahera Selatan, Maluku Utara</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Skor provinsi tertinggi</div><div class="irbi-kartu-nilai">230,78</div><div class="irbi-kartu-sub">Papua Barat Daya</div></div></div>
+```
+
+```{=typst}
+#irbi-kartu((("Rata-rata IRBI kab/kota", "147,94", "dihitung dari tabel 514 kab/kota", ""), ("Kab/kota kelas tinggi", "169", "345 sedang · 0 rendah", "TINGGI"), ("Provinsi kelas tinggi", "15", "23 sedang · 0 rendah", "TINGGI"), ("Skor kab/kota tertinggi", "278,51", "Halmahera Selatan, Maluku Utara", ""), ("Skor provinsi tertinggi", "230,78", "Papua Barat Daya", ""),))
+```

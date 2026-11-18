@@ -1,0 +1,51 @@
+```{=html}
+<div class="irbi-tabel-wrap"><table class="irbi-tabel" data-quarto-disable-processing="true" id="irbi-tabel-33" data-diadopsi="ya" data-nama-berkas="irbi-2025-jawa-tengah.csv"><caption>Tabel nilai indeks risiko Provinsi Jawa Tengah Tahun 2025</caption><thead><tr><th data-tipe="angka">No</th><th>Kabupaten/Kota</th><th data-tipe="angka">IRB</th><th>Kelas Risiko</th></tr></thead><tbody><tr data-kelas="SEDANG" data-kode="33.25"><td class="angka">1</td><td>BATANG</td><td class="angka">140,60</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.29"><td class="angka">2</td><td>BREBES</td><td class="angka">131,59</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.03"><td class="angka">3</td><td>PURBALINGGA</td><td class="angka">130,21</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.18"><td class="angka">4</td><td>PATI</td><td class="angka">125,78</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.20"><td class="angka">5</td><td>JEPARA</td><td class="angka">121,22</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.23"><td class="angka">6</td><td>TEMANGGUNG</td><td class="angka">113,28</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.28"><td class="angka">7</td><td>TEGAL</td><td class="angka">110,85</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.24"><td class="angka">8</td><td>KENDAL</td><td class="angka">109,79</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.01"><td class="angka">9</td><td>CILACAP</td><td class="angka">108,74</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.26"><td class="angka">10</td><td>PEKALONGAN</td><td class="angka">102,14</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.73"><td class="angka">11</td><td>KOTA SALATIGA</td><td class="angka">98,79</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.27"><td class="angka">12</td><td>PEMALANG</td><td class="angka">97,49</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.14"><td class="angka">13</td><td>SRAGEN</td><td class="angka">97,45</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.71"><td class="angka">14</td><td>KOTA MAGELANG</td><td class="angka">92,30</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.04"><td class="angka">15</td><td>BANJARNEGARA</td><td class="angka">87,56</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.11"><td class="angka">16</td><td>SUKOHARJO</td><td class="angka">87,03</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.06"><td class="angka">17</td><td>PURWOREJO</td><td class="angka">86,45</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.21"><td class="angka">18</td><td>DEMAK</td><td class="angka">86,00</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.76"><td class="angka">19</td><td>KOTA TEGAL</td><td class="angka">83,66</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.22"><td class="angka">20</td><td>SEMARANG</td><td class="angka">83,44</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.12"><td class="angka">21</td><td>WONOGIRI</td><td class="angka">83,38</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.02"><td class="angka">22</td><td>BANYUMAS</td><td class="angka">82,87</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.74"><td class="angka">23</td><td>KOTA SEMARANG</td><td class="angka">82,76</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.16"><td class="angka">24</td><td>BLORA</td><td class="angka">82,52</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.13"><td class="angka">25</td><td>KARANGANYAR</td><td class="angka">82,14</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.17"><td class="angka">26</td><td>REMBANG</td><td class="angka">81,97</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.75"><td class="angka">27</td><td>KOTA PEKALONGAN</td><td class="angka">81,18</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.05"><td class="angka">28</td><td>KEBUMEN</td><td class="angka">78,88</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.08"><td class="angka">29</td><td>MAGELANG</td><td class="angka">76,90</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.07"><td class="angka">30</td><td>WONOSOBO</td><td class="angka">74,56</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.10"><td class="angka">31</td><td>KLATEN</td><td class="angka">74,28</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.09"><td class="angka">32</td><td>BOYOLALI</td><td class="angka">71,44</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.19"><td class="angka">33</td><td>KUDUS</td><td class="angka">69,14</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.15"><td class="angka">34</td><td>GROBOGAN</td><td class="angka">65,59</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr><tr data-kelas="SEDANG" data-kode="33.72"><td class="angka">35</td><td>KOTA SURAKARTA</td><td class="angka">51,08</td><td><span class="kelas kelas-sedang">SEDANG</span></td></tr></tbody></table></div>
+```
+
+```{=typst}
+#irbi-tabel(
+  judul: "Tabel nilai indeks risiko Provinsi Jawa Tengah Tahun 2025",
+  lebar: (auto, 1fr, auto, auto),
+  rata: (center, left, right, center),
+  ukuran: 8.5pt,
+  kepala: ("No", "Kabupaten/Kota", "IRB", "Kelas Risiko",),
+  kelas-kolom: 3,
+  baris: (
+    ("1", "BATANG", "140,60", "SEDANG",),
+    ("2", "BREBES", "131,59", "SEDANG",),
+    ("3", "PURBALINGGA", "130,21", "SEDANG",),
+    ("4", "PATI", "125,78", "SEDANG",),
+    ("5", "JEPARA", "121,22", "SEDANG",),
+    ("6", "TEMANGGUNG", "113,28", "SEDANG",),
+    ("7", "TEGAL", "110,85", "SEDANG",),
+    ("8", "KENDAL", "109,79", "SEDANG",),
+    ("9", "CILACAP", "108,74", "SEDANG",),
+    ("10", "PEKALONGAN", "102,14", "SEDANG",),
+    ("11", "KOTA SALATIGA", "98,79", "SEDANG",),
+    ("12", "PEMALANG", "97,49", "SEDANG",),
+    ("13", "SRAGEN", "97,45", "SEDANG",),
+    ("14", "KOTA MAGELANG", "92,30", "SEDANG",),
+    ("15", "BANJARNEGARA", "87,56", "SEDANG",),
+    ("16", "SUKOHARJO", "87,03", "SEDANG",),
+    ("17", "PURWOREJO", "86,45", "SEDANG",),
+    ("18", "DEMAK", "86,00", "SEDANG",),
+    ("19", "KOTA TEGAL", "83,66", "SEDANG",),
+    ("20", "SEMARANG", "83,44", "SEDANG",),
+    ("21", "WONOGIRI", "83,38", "SEDANG",),
+    ("22", "BANYUMAS", "82,87", "SEDANG",),
+    ("23", "KOTA SEMARANG", "82,76", "SEDANG",),
+    ("24", "BLORA", "82,52", "SEDANG",),
+    ("25", "KARANGANYAR", "82,14", "SEDANG",),
+    ("26", "REMBANG", "81,97", "SEDANG",),
+    ("27", "KOTA PEKALONGAN", "81,18", "SEDANG",),
+    ("28", "KEBUMEN", "78,88", "SEDANG",),
+    ("29", "MAGELANG", "76,90", "SEDANG",),
+    ("30", "WONOSOBO", "74,56", "SEDANG",),
+    ("31", "KLATEN", "74,28", "SEDANG",),
+    ("32", "BOYOLALI", "71,44", "SEDANG",),
+    ("33", "KUDUS", "69,14", "SEDANG",),
+    ("34", "GROBOGAN", "65,59", "SEDANG",),
+    ("35", "KOTA SURAKARTA", "51,08", "SEDANG",),
+  ),
+) <tbl-irbi-33>
+```

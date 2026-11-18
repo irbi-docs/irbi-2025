@@ -58,8 +58,10 @@ Untuk memasukkan paket ke sumber (agar PDF buku ikut berubah):
 | Tampilan PDF | `assets/typst/irbi.typ`, `typst-show.typ`, `scripts/templat_peta.typ` |
 
 `_gen/`, `peta/`, dan `assets/data/` dibuat ulang otomatis oleh `scripts/bangun.py` setiap kali render,
-termasuk sidik versi aset di `assets/html/kepala.html` agar peramban tidak memakai berkas lama. Folder hasil
-ini dan `_book/` tidak disimpan di repositori (lihat `.gitignore`).
+termasuk sidik versi aset di `assets/html/kepala.html` agar peramban tidak memakai berkas lama, jadi jangan
+diedit manual. `_gen/` tetap disimpan di repositori karena Quarto membaca berkas *include* sebelum skrip
+pre-render berjalan (tanpanya clone baru gagal dirender); `peta/`, `assets/data/`, dan `_book/` tidak
+disimpan (lihat `.gitignore`).
 
 ## Sumber & lisensi pihak ketiga
 

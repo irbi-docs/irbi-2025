@@ -1,0 +1,7 @@
+```{=html}
+<div class="irbi-kartu-grid" data-kartu="prov:82"><div class="irbi-kartu kelas-tinggi"><div class="irbi-kartu-label">Nilai IRB 2025</div><div class="irbi-kartu-nilai">220,33</div><div class="irbi-kartu-sub">Kelas Tinggi</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Peringkat provinsi</div><div class="irbi-kartu-nilai">2 / 38</div><div class="irbi-kartu-sub">urut dari skor tertinggi</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Jumlah kabupaten/kota</div><div class="irbi-kartu-nilai">10</div><div class="irbi-kartu-sub">9 tinggi · 1 sedang</div></div><div class="irbi-kartu "><div class="irbi-kartu-label">Skor kab/kota tertinggi</div><div class="irbi-kartu-nilai">278,51</div><div class="irbi-kartu-sub">Halmahera Selatan</div></div></div>
+```
+
+```{=typst}
+#irbi-kartu((("Nilai IRB 2025", "220,33", "Kelas Tinggi", "TINGGI"), ("Peringkat provinsi", "2 / 38", "urut dari skor tertinggi", ""), ("Jumlah kabupaten/kota", "10", "9 tinggi · 1 sedang", ""), ("Skor kab/kota tertinggi", "278,51", "Halmahera Selatan", ""),))
+```
