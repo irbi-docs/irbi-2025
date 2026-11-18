@@ -1,0 +1,31 @@
+---
+title: "Sumatera Barat"
+---
+
+![](../assets/img/lambang/13.png){.irbi-lambang fig-alt="Lambang Sumatera Barat" width=0.8in}
+
+{{< include /_gen/provinsi/13-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Sumatera Barat yang beribukota di Kota Padang memiliki luas wilayah 42.119,54 km², terdiri dari 12 kabupaten dan 7 kota. Jumlah penduduk di tahun 2025 mencapai 5,9 juta jiwa (BPS, 2025).
+
+Secara geografis, Provinsi Sumatera Barat memiliki karakteristik yang unik karena terletak di pesisir barat Pulau Sumatera dan mencakup wilayah kepulauan (Mentawai) yang berada di zona Samudra Hindia. Kondisi Topografi di Sumatera Barat didominasi oleh jalur Pegunungan Bukit Barisan, kemudian di bagian barat merupakan dataran rendah yang sempit dan berbatasan dengan garis pantai. Secara geologi cukup kompleks dikarenakan berada di daerah tumbukan dua lempeng tektonik Lempeng Indo-Australia dan Lempeng Eurasia. Dengan kecenderungan daerah bagian barat lebih basah bila dibandingkan dengan bagian timur (RPJMD Provinsi Sumatera Barat 2021 - 2026) dengan curah hujan tahunan berkisar antara 1.980 - 5.000 mm/tahun.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah kebakaran hutan dan lahan, banjir, serta cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025 Provinsi Sumatera Barat memiliki kelas risiko Tinggi dengan nilai 176,82.
+
+{{< include /_gen/provinsi/13-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kekeringan, Kebakaran Hutan dan Lahan, Tanah Longsor, Likuefaksi, Tsunami, dan Letusan Gunung Api.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/13-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/13-tabel.md >}}

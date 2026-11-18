@@ -1,0 +1,31 @@
+---
+title: "Sumatera Utara"
+---
+
+![](../assets/img/lambang/12.png){.irbi-lambang fig-alt="Lambang Sumatera Utara" width=0.8in}
+
+{{< include /_gen/provinsi/12-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Sumatera Utara beribukota di Kota Medan dan memiliki luas wilayah 72.460,744 km². Wilayah administrasi Provinsi Sumatera Utara terdiri dari 25 kabupaten dan 8 kota, dengan jumlah penduduk di tahun 2025 mencapai 15,7 juta jiwa. (BPS, 2025)
+
+Kondisi topografi Sumatera Utara di bagian timur, terbentang dataran rendah yang luas, landai, dan dialiri oleh sungai-sungai besar yang bermuara ke Selat Malaka. Beranjak ke bagian tengah, topografi berubah secara drastis menjadi barisan pegunungan yang menjulang tinggi, yang dikenal sebagai Pegunungan Bukit Barisan. Sementara di sisi barat, daratan menyempit dengan garis pantai yang berbukit terjal. Secara geologis, Sumatera Utara adalah salah satu titik paling dinamis di kerak bumi. Provinsi ini berdiri di atas pertemuan lempeng tektonik yang sangat aktif. Faktor yang paling menonjol adalah keberadaan Sesar Sumatera atau Patahan Semangko yang membelah provinsi ini dari barat laut ke tenggara. Karena terletak dekat dengan garis khatulistiwa, kondisi klimatologis Provinsi Sumatera Utara tergolong ke dalam daerah iklim tropis yang dipengaruhi oleh angin pasat dan angin muson. (Rencana Pembangunan Jangka Menengah Daerah Provinsi Sumatera Utara 2025 - 2029)
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir, kebakaran hutan dan lahan, serta cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Sumatera Utara memiliki kelas risiko Sedang dengan nilai 162,25.
+
+{{< include /_gen/provinsi/12-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Likuefaksi, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kebakaran Hutan dan Lahan, Kekeringan, Tanah Longsor, Tsunami, Letusan Gunung Api.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/12-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/12-tabel.md >}}

@@ -1,0 +1,31 @@
+---
+title: "Daerah Istimewa Yogyakarta"
+---
+
+![](../assets/img/lambang/34.png){.irbi-lambang fig-alt="Lambang Daerah Istimewa Yogyakarta" width=0.8in}
+
+{{< include /_gen/provinsi/34-ringkasan.md >}}
+
+## Profil Wilayah
+
+Daerah Istimewa Yogyakarta beribukota di Kota Yogyakarta, dengan luas wilayah 3.170,645 km². Wilayah administrasi Daerah Istimewa Yogyakarta terdiri dari 4 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 sebanyak 3,78 juta jiwa. (BPS, 2025)
+
+Kondisi topografi di wilayah Daerah Istimewa Yogyakarta berupa bentang alam yang terdiri dari kawasan pesisir, lereng/punggung bukit dan dataran. Kondisi geologi pada Daerah Istimewa Yogyakarta mempunyai struktur geologi lipatan dan patahan. Lipatan terdiri dari antiklin dan sinklin terdapat pada singkapan Formasi Semilir (Tms), Formasi Oya (Tmo), Formasi Wonosari-Punung (Tmwl) dan Formasi Kepek (Tmpk). Patahan berupa sesar turun dengan pola antithetic fault block, terdapat antara lain pada terban Bantul. Kondisi klimatologi pada Daerah Istimewa Yogyakarta terletak di wilayah yang dipengaruhi oleh tiga tipe iklim yaitu musiman, tropis, dan maritim (RPJMD Daerah Istimewa Yogyakarta 2022 - 2027) dengan curah hujan tahunan pada tahun 2024 sebesar 3.058 mm/ tahun.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah cuaca ekstrem, tanah longsor, dan banjir. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Daerah Istimewa Yogyakarta memiliki kelas risiko Sedang dengan nilai 88,91.
+
+{{< include /_gen/provinsi/34-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kebakaran Hutan dan Lahan, Kekeringan, Tanah Longsor, Tsunami, Likuefaksi, dan Letusan Gunung Api.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/34-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/34-tabel.md >}}

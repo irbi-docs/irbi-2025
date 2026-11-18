@@ -1,0 +1,16 @@
+# Hasil render & berkas yang dibuat otomatis oleh scripts/bangun.py
+/_book/
+/.quarto/
+/_gen/
+/peta/
+/assets/data/
+# Alat lokal & berkas kerja
+/.tools/
+/.venv/
+/_work/
+
+**/*.quarto_ipynb
+# Berkas sistem & cache
+.DS_Store
+__pycache__/
+*.pyc

@@ -1,0 +1,31 @@
+---
+title: "Gorontalo"
+---
+
+![](../assets/img/lambang/75.png){.irbi-lambang fig-alt="Lambang Gorontalo" width=0.8in}
+
+{{< include /_gen/provinsi/75-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Gorontalo beribukota di Kota Gorontalo memiliki luas wilayah 12.025,147 km². Wilayah administrasi di Provinsi Gorontalo terdiri dari 5 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 mencapai 1.242.240 jiwa (BPS Provinsi Gorontalo, 2025).
+
+Kondisi geologi pada Provinsi Gorontalo dipengaruhi oleh struktur geologi lajur volkano-plutonik Gorontalo yang didominasi batuan gunungapi Eosen-Pliosen. Topografi pada Provinsi Gorontalo didominasi oleh perbukitan dan mempunyai banyak gunung dengan ketinggian yang berbeda beda yaitu Lengan Utara Sulawesi dan terbagi kedalam lima zona utama yaitu Pegunungan Utara, Depresi Limboto, Pegunungan Selatan, perbukitan Bergelombang dan Dataran Pantai. Menurut catatan Stasiun Meteorologi Djalaluddin, suhu udara rata-rata Provinsi Gorontalo selama tahun 2024 adalah 27,69°C. Suhu terendah terjadi di bulan Agustus yaitu 21,10°C. Provinsi Gorontalo memiliki kelembaban udara yang relatif tinggi. Rata-rata kelembaban udara pada tahun 2024 sebesar 83,38%. Sementara itu, untuk jumlah curah hujan selama tahun 2024 yaitu sebesar 1.595,70 mm. Curah hujan tertinggi terjadi pada bulan Agustus, yaitu mencapai 359,40 mm. (BPS Provinsi Gorontalo, 2025).
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Gorontalo adalah bencana banjir. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Gorontalo memiliki kelas risiko Sedang dengan nilai 164,37.
+
+{{< include /_gen/provinsi/75-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Likuefaksi, Kebakaran Hutan dan Lahan, Kekeringan, Tanah Longsor, Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/75-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/75-tabel.md >}}

@@ -1,0 +1,41 @@
+---
+title: "Pendahuluan"
+---
+
+![](assets/img/foto-pendahuluan.jpg){.irbi-foto-bab fig-alt="Foto dokumentasi kebencanaan"}
+
+## Latar Belakang
+
+Indonesia memiliki risiko bencana yang tinggi sebagai konsekuensi letak negara ini dari sisi geologis dan geografis. Secara geologis, Indonesia berada pada pertemuan empat lempeng utama yaitu Eurasia, Indo Australia, Filipina, dan Pasifik yang menjadikan Indonesia rawan bencana gempabumi, tsunami, dan letusan gunung api. Di sisi lain, kondisi geografis Indonesia yang berada di daerah tropis dan pada pertemuan dua samudera dan dua benua membuat wilayah ini rawan akan bencana banjir, tanah longsor, banjir bandang, cuaca ekstrem, gelombang ekstrem dan abrasi, dan kekeringan yang juga dapat memicu kebakaran hutan dan lahan.
+
+Melihat kondisi tersebut, perlu dilakukan upaya-upaya pengelolaan risiko bencana untuk mengurangi kerugian akibat bencana seminimal mungkin. Upaya pengelolaan risiko bencana ini didasari dengan pemahaman risiko bencana yang ada yang diperoleh melalui suatu kajian risiko bencana. Informasi risiko bencana tersebut kemudian dijadikan salah satu dasar dalam perumusan berbagai upaya penanggulangan bencana.
+
+Penentuan tingkat risiko bencana sudah dilakukan Badan Nasional Penanggulangan Bencana (BNPB) sejak periode awal berdiri, yaitu pada tahun 2008. Pada tahun 2009, BNPB menerbitkan status kebencanaan melalui Indeks Kerawanan Bencana Indonesia yang diperbaharui dengan Indeks Rawan Bencana Indonesia pada tahun 2011. Sejak tahun 2013, BNPB menerbitkan Indeks Risiko Bencana Indonesia. Perubahan terminologi dari “rawan” menjadi “risiko” menunjukkan perubahan substansi dari penilaian dampak bencana (korban jiwa, kerusakan atau kerugian) menjadi penilaian potensi kehilangan atau kerugian (risiko).
+
+Dalam indeks risiko, tingkat kebencanaan dinilai berdasarkan komponen penyusunnya, yaitu bahaya, kerentanan, dan kapasitas pemerintah dalam menghadapi bencana. Penilaian tingkat risiko berdasarkan potensi kerugian di atas memungkinkan adanya perhitungan capaian suatu upaya pengurangan risiko bencana di suatu daerah. Risiko bencana akan mengalami penurunan atau peningkatan seiring adanya perubahan pada komponen tersebut. Oleh karena itu, program atau kegiatan yang berkaitan dengan pengurangan kerentanan atau peningkatan kapasitas dapat dilihat kontribusinya secara kuantitatif dalam bentuk penurunan Indeks Risiko Bencana. Penilaian secara berkala terhadap indeks risiko ini dapat menjadi perangkat pemantauan dan evaluasi terhadap capaian program penanggulangan bencana pada periode tertentu.
+
+## Ruang Lingkup
+
+Indeks Risiko Bencana Indonesia (IRBI) dihitung berdasarkan 3 komponen input, yaitu:
+
+1. Bahaya (H) yang dihitung berdasarkan probabilitas spasial, frekuensi dan kekuatan (magnitudo) dari suatu fenomena alam seperti gempa bumi, banjir, letusan gunung api, dan lainnya.
+2. Kerentanan (V) yang dihitung berdasarkan parameter sosial budaya, ekonomi, fisik dan lingkungan.
+3. Kapasitas (C) yang dinilai dengan menggunakan pendekatan tingkat ketahanan daerah berdasarkan tujuh prioritas yaitu: (1) perkuatan kebijakan dan kelembagaan; (2) pengkajian risiko dan perencanaan terpadu; (3) pengembangan sistem informasi, diklat dan logistik; (4) penanganan tematik kawasan rawan bencana; (5) peningkatan efektivitas pencegahan dan mitigasi bencana; (6) perkuatan kesiapsiagaan dan penanganan darurat bencana; dan (7) pengembangan sistem pemulihan bencana.
+
+Pada periode 2015-2024, penurunan Indeks Risiko Bencana (IRB) dapat menjadi gambaran ketercapaian upaya penanggulangan bencana di suatu daerah. Hal ini disebabkan perhitungan IRB dilakukan menggunakan komponen bahaya dan kerentanan yang tetap setiap tahunnya. Sehingga penurunan nilai IRB sejalan dengan peningkatan kapasitas.
+
+Pada tahun 2025, dilakukan penambahan 2 (dua) jenis bahaya serta pemutakhiran pada komponen bahaya dan kerentanan yang digunakan dalam perhitungan IRB. Oleh karena itu, penurunan IRB di tahun 2025 tidak dapat dihitung berdasarkan nilai IRB 2024 secara langsung. Penurunan IRB Nasional sebagai target RPJMN pada tahun 2025 dihitung menggunakan pendekatan komparatif dengan mengacu pada data input bahaya dan kerentanan yang sama sebagaimana digunakan pada periode 2015- 2024. Adapun perhitungan IRB tahun 2025 yang menggunakan data bahaya dan kerentanan yang telah dimutakhirkan menandai dimulainya periode baru dalam pengukuran penurunan IRB. Dengan demikian, penurunan IRB pada periode tersebut baru dapat dihitung secara langsung mulai tahun 2026.
+
+Buku ini menggambarkan nilai Indeks Risiko Bencana di setiap kabupaten/kota pada tahun 2025 yang telah dihitung menggunakan data input bahaya, kerentanan, dan kapasitas. Nilai kapasitas berdasarkan pengukuran Indeks Ketahanan Daerah (IKD) tahun 2025. Adapun komponen bahaya mengacu kepada baseline nilai bahaya tahun 2021 dan kerentanan mengacu kepada hasil proyeksi kerentanan tahun 2025 dalam Proyeksi IRBI 2025-2045.
+
+Indeks Risiko Bencana Indonesia pada buku ini terbatas pada bahaya-bahaya yang ditimbulkan secara langsung oleh faktor alam, yang mencakup sebelas jenis ancaman yaitu: gempa bumi, tsunami, letusan gunung api, tanah longsor, banjir, cuaca ekstrem, kekeringan, kebakaran hutan dan lahan, banjir bandang, likuefaksi, dan gelombang ekstrem dan abrasi.
+
+## Tujuan
+
+Indeks Risiko Bencana ini bertujuan untuk memberikan informasi tingkat risiko bencana di setiap kabupaten/kota, provinsi, dan nasional di Indonesia. Perhitungan tingkat risiko dilakukan dengan memperhatikan faktor bahaya (hazard), kerentanan (vulnerability), dan kapasitas (capacity), yang hasilnya disajikan per jenis bahaya maupun secara gabungan untuk seluruh kabupaten/kota di Indonesia.
+
+Informasi tingkat risiko bencana yang termuat dalam buku ini dapat dimanfaatkan oleh berbagai pihak, terutama pemerintah daerah, sebagai dasar analisis dalam pembentukan kebijakan kelembagaan, perencanaan program, penganggaran, statistik, dan operasionalisasi penanggulangan bencana.
+
+Indeks Risiko Bencana Indonesia 2025 merupakan awal dari penggunaan baseline bahaya dan kerentanan yang telah dimutakhirkan untuk menghasilkan informasi risiko yang lebih representatif. Baseline yang telah dimutakhirkan ini selanjutnya akan digunakan sebagai titik acuan dalam menghitung tren penurunan IRB sebagai gambaran capaian program penanggulangan bencana oleh pemerintah daerah dari tahun ke tahun.
+
+Lebih dari itu, IRBI 2025 berperan strategis sebagai baseline atau titik awal dalam pemantauan pencapaian target IRB nasional periode RPJMN 2025–2029 sekaligus sebagai instrumen evaluasi capaian Rencana Strategis BNPB 2025–2029. Dengan demikian, IRBI bukan sekadar dokumen referensi teknis, melainkan bagian integral dari sistem perencanaan dan akuntabilitas pembangunan nasional dalam mewujudkan Indonesia yang semakin tangguh terhadap bencana.

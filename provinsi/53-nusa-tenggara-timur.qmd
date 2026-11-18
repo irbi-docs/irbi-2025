@@ -1,0 +1,31 @@
+---
+title: "Nusa Tenggara Timur"
+---
+
+![](../assets/img/lambang/53.png){.irbi-lambang fig-alt="Lambang Nusa Tenggara Timur" width=0.8in}
+
+{{< include /_gen/provinsi/53-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Nusa Tenggara Timur beribukota di Kota Kupang, dengan luas wilayah 46.446,64 km². Wilayah administrasi Provinsi Nusa Tenggara Timur terdiri dari 21 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 sebanyak 5,74 juta jiwa. (BPS, 2025)
+
+Secara topografi wilayah Provinsi Nusa Tenggara Timur mempunyai bentuk wilayah berbukit-bukit dan bergunung -gunung, dengan dataran-dataran yang sempit yang umumnya memanjang sepanjang pantai dan diapit oleh dataran tinggi atau perbukitan. Wilayah Nusa Tenggara Timur termasuk dalam kawasan Sirkum Pasifik sehingga daerah ini, terutama sepanjang Pulau Flores dan Pulau Timor, memiliki struktur tanah yang labil. Pulau-pulau seperti Flores, Alor, Komodo, Solor, Lembata dan pulau-pulau sekitarnya terletak pada jalur vulkanik (Ring of Fire) dan dapat dikategorikan subur namun rawan bencana geologis. Kondisi klimatologi pada Provinsi Nusa Tenggara Timur secara umum didominasi oleh iklim tropis yang termasuk ke dalam kategori iklim semi-ringkai dengan karakteristik musim penghujan rata-rata tiga sampai empat bulan dan musim kemarau delapan hingga sembilan bulan (RPJMD Provinsi Nusa Tenggara Timur 2018 - 2023) dengan curah hujan tahunan pada tahun 2024 sebesar 1.314 mm/tahun.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir dan tanah longsor. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Nusa Tenggara Timur memiliki kelas risiko Tinggi dengan nilai 197,43.
+
+{{< include /_gen/provinsi/53-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Likuefaksi, Kebakaran Hutan dan Lahan, Letusan Gunung Api, Kekeringan, Tanah Longsor, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/53-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/53-tabel.md >}}

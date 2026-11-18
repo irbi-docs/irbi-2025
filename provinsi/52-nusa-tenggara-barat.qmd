@@ -1,0 +1,31 @@
+---
+title: "Nusa Tenggara Barat"
+---
+
+![](../assets/img/lambang/52.png){.irbi-lambang fig-alt="Lambang Nusa Tenggara Barat" width=0.8in}
+
+{{< include /_gen/provinsi/52-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Nusa Tenggara Barat beribukota di Kota Mataram, dengan luas wilayah 19.675,89 km². Wilayah administrasi Provinsi Nusa Tenggara Barat terdiri dari 8 kabupaten dan 2 kota, dengan jumlah penduduk di tahun 2025 sebanyak 5,64 juta jiwa (BPS, 2025).
+
+Topografi wilayah Provinsi Nusa Tenggara Barat bervariasi dari 0-3.726 mdpl untuk Pulau Lombok, dan 0-2.755 m dpl untuk Pulau Sumbawa. Keadaan geologi wilayah Nusa Tenggara Barat didominasi oleh batuan gunung api serta aluvium (resent). Batuan tertua berumur tersier sedangkan yang termuda berumur kuarter. Batuan tersier di Pulau Lombok terdiri dari perselingan batu pasir kuarsa, batu lempung, breksi, lava, tufa dengan lensa-lensa batugamping, batu gamping, dan dasit. Batuan tersier di Pulau Sumbawa terdiri dari lava, breksi, tufa, andesit, batu pasir tufan, batu lempung, dasit, tonalit, tufa dasitan, batu gamping berlapis, batu gamping tufan, dan lempung tufan. Kondisi klimatologi pada provinsi Nusa Tenggara Barat dengan curah hujan pada tahun 2024 sebesar 1.456 mm (RPJMD Provinsi Nusa Tenggara Barat 2019 - 2023).
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir dan cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Nusa Tenggara Barat memiliki kelas risiko Sedang dengan nilai 156,02.
+
+{{< include /_gen/provinsi/52-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Kekeringan, Kebakaran Hutan dan Lahan, Letusan Gunung Api, Tanah Longsor, Likuefaksi, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/52-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/52-tabel.md >}}

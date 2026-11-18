@@ -1,0 +1,17 @@
+---
+title: "Gempabumi"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana gempabumi tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/gempabumi-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Gempabumi
+
+{{< include /_gen/ancaman/gempabumi-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Gempabumi
+
+{{< include /_gen/ancaman/gempabumi-tabel.md >}}

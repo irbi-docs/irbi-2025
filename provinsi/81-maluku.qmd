@@ -1,0 +1,31 @@
+---
+title: "Maluku"
+---
+
+![](../assets/img/lambang/81.png){.irbi-lambang fig-alt="Lambang Maluku" width=0.8in}
+
+{{< include /_gen/provinsi/81-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Maluku beribukota di Kota Ambon memiliki luas wilayah 46.150,92 km². Wilayah administrasi Provinsi Maluku terdiri dari 9 kabupaten dan 2 kota, dengan jumlah penduduk di tahun 2025 mencapai 1.970.563 jiwa (BPS Maluku, 2025).
+
+Kondisi geologi pada Provinsi Maluku dipengaruhi oleh aktivitas tektonik berupa lipatan dan sesar dan mengakibatkan terbentuknya gunung api Kelang. Topografi pada Provinsi Maluku terdiri dari dataran rendah, berbukit dan gunung dengan topografi dataran rendah yakni Maluku Tenggara Barat, Maluku Tenggara, Maluku Tengah, Seram Bagian Barat, Seram Bagian Timur dan Buru. Klimatologi Provinsi Maluku tahun 2024 ditandai dengan cuaca ekstrem (hujan lebat & gelombang tinggi) di akhir tahun, tutupan awan tinggi (Juli), dan potensi kekeringan meteorologis di awal Juni. Provinsi Maluku beriklim tropis basah dengan curah hujan tinggi yang mendominasi.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Maluku adalah bencana banjir. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Maluku memiliki kelas risiko tinggi dengan nilai 203,94.
+
+{{< include /_gen/provinsi/81-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Likuefaksi, Kebakaran Hutan dan Lahan, Letusan Gunung Api, Kekeringan, Tanah Longsor, Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/81-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/81-tabel.md >}}

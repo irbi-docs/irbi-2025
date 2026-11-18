@@ -1,0 +1,24 @@
+---
+title: "Jelajah Data"
+subtitle: "Peta, tabel, grafik, dan profil wilayah yang saling terhubung"
+page-layout: full
+toc: false
+---
+
+::: {.content-visible when-format="html"}
+Saring menurut **jenis indeks**, **wilayah**, **kelas risiko**, **rentang skor**, atau **nama**. Klik ganda
+lencana kelas untuk menampilkan kelas itu saja. Klik wilayah di peta, daftar, atau grafik untuk melihat profil
+risikonya pada 11 ancaman. Alamat halaman menyimpan filter Anda, jadi tautannya bisa dibagikan. Hasilnya bisa
+diunduh sebagai **PDF sesuai filter** (peta berketerangan, ringkasan, dan tabel data lengkap) atau **CSV**.
+
+```{=html}
+<div class="irbi-jelajah" data-tata="penuh" data-tingkat="kabkota" data-indeks="irbi"></div>
+```
+:::
+
+::: {.content-visible when-format="typst"}
+*Jelajah Data* adalah fitur interaktif pada edisi HTML buku ini. Di sana peta, tabel, grafik, dan profil
+wilayah dapat disaring menurut jenis indeks, provinsi, kelas risiko, rentang skor, dan nama wilayah, lalu
+diunduh sebagai PDF atau CSV sesuai filter. Peta dan tabel lengkap untuk edisi cetak tersedia pada bab
+*Hasil Analisis Data*, bab provinsi, dan bab per ancaman.
+:::

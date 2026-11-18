@@ -1,0 +1,31 @@
+---
+title: "Kalimantan Barat"
+---
+
+![](../assets/img/lambang/61.png){.irbi-lambang fig-alt="Lambang Kalimantan Barat" width=0.8in}
+
+{{< include /_gen/provinsi/61-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Kalimantan Barat beribukota di Kota Pontianak memiliki luas wilayah 147.037,04 km². Wilayah administrasi Provinsi Kalimantan Barat terdiri dari 12 kabupaten dan 2 kota, dengan jumlah penduduk di tahun 2025 mencapai 5.766.030 jiwa (BPS Kalimantan Barat, 2025).
+
+Kondisi geologi pada Provinsi Kalimantan Barat didominasi oleh kelurusan atau patahan tua dari batuan berumur tua, terutama batuan Trias. Terdapat endapan aluvium dan batuan sedimen yang menyusun morfologi dataran rendah di daerah pantai. Topografi pada Provinsi Kalimantan Barat sebagian besar didominasi oleh dataran rendah, terdapat pegunungan dan bukit seperti pegunungan Schwaner di bagian selatan dan Pegunungan Kalingkang/Kapuas Hulu di bagian Utara, gunung-gunung di Kalimantan Barat relatif rendah dan non aktif. Kondisi klimatologi pada provinsi Kalimantan Barat secara umum Iklim Tropis dengan 2 (dua) musim, yakni musim panas dan musim penghujan. Suhu udara di Kalimantan Barat relatif panas yang diikuti dengan kelembaban udara yang tinggi. Curah hujan di Kalimantan Barat yaitu 3.586,20 mm/tahun (BPS, 2025).
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Kalimantan Barat adalah bencana banjir. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Kalimantan Barat memiliki kelas risiko Sedang dengan nilai 113,32.
+
+{{< include /_gen/provinsi/61-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kebakaran Hutan dan Lahan, Kekeringan, Tanah Longsor.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/61-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/61-tabel.md >}}

@@ -1,0 +1,31 @@
+---
+title: "Sulawesi Selatan"
+---
+
+![](../assets/img/lambang/73.png){.irbi-lambang fig-alt="Lambang Sulawesi Selatan" width=0.8in}
+
+{{< include /_gen/provinsi/73-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Sulawesi Selatan beribukota di Kota Makassar memiliki luas wilayah 45.330,55 km². Wilayah administrasi Provinsi Sulawesi Selatan terdiri dari 21 kabupaten dan 3 kota, dengan jumlah penduduk di tahun 2025 mencapai 9.563.130 jiwa (BPS Sulawesi Selatan, 2025).
+
+Kondisi geologi pada Provinsi Sulawesi Selatan dipengaruhi oleh struktur geologi berupa volkan tersier yang memanjang dari lengan selatan ke lengan utara. Topografi pada provinsi Sulawesi Selatan sangat beragam mulai dari dataran rendah hingga dataran tinggi. Kondisi klimatologi pada Provinsi Sulawesi Selatan memiliki curah hujan tahunan pada tahun 2024 sebesar 3.057 mm/tahun dengan jumlah hari hujan sebanyak 319 hari dan tingkat penyinaran matahari sebesar 5,12 jam/hari.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Sulawesi Selatan adalah bencana cuaca ekstrem, banjir, dan tanah longsor. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Sulawesi Selatan memiliki kelas risiko Tinggi dengan nilai 196,55.
+
+{{< include /_gen/provinsi/73-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Likuefaksi, Kebakaran Hutan dan Lahan, Kekeringan, Tanah Longsor, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/73-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/73-tabel.md >}}

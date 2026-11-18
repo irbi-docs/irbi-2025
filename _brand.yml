@@ -1,0 +1,71 @@
+# Identitas visual IRBI 2025 (Quarto brand.yml).
+# Dipakai sekaligus oleh HTML (tema terang & gelap), PDF Typst, dan peta statis (scripts/bangun.py).
+# Ubah warna di sini untuk mengganti tampilan seluruh buku; tampilan juga bisa diubah langsung di
+# aplikasi melalui panel Studio tanpa menyentuh berkas ini.
+
+meta:
+  name:
+    full: Indeks Risiko Bencana Indonesia 2025 — Badan Nasional Penanggulangan Bencana
+    short: IRBI 2025
+  link: https://bnpb.go.id
+
+color:
+  palette:
+    teal: "#0B3C49"
+    teal-muda: "#5EC1D6"
+    biru: "#17708A"
+    emas: "#A68B5B"
+    emas-muda: "#E7C98F"
+    krem: "#F4F1EA"
+    tinta: "#1F2D33"
+    malam: "#0C171C"
+    # warna kelas risiko (dipakai peta, tabel, lencana, dan PDF)
+    tinggi: "#E5242A"
+    sedang: "#FFE433"
+    rendah: "#2EAD4B"
+    tanpa: "#D5D5D5"
+  background:
+    light: "#FBFAF7"
+    dark: malam
+  foreground:
+    light: tinta
+    dark: "#E2EBEE"
+  primary:
+    light: teal
+    dark: teal-muda
+  secondary: emas
+  info: biru
+  success: rendah
+  warning: "#D9A400"
+  danger: tinggi
+
+typography:
+  fonts:
+    - family: Plus Jakarta Sans
+      source: google
+      weight: [500, 600, 700, 800]
+    - family: Source Sans 3
+      source: google
+      weight: [400, 600, 700]
+      style: [normal, italic]
+  base:
+    family: Source Sans 3
+    line-height: 1.65
+  headings:
+    family: Plus Jakarta Sans
+    weight: 700
+    color:
+      light: teal
+      dark: "#EAF3F5"
+  link:
+    color:
+      light: biru
+      dark: teal-muda
+
+logo:
+  images:
+    bnpb:
+      path: assets/img/logo-bnpb.png
+      alt: Logo Badan Nasional Penanggulangan Bencana
+  small: bnpb
+  medium: bnpb

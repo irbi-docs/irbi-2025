@@ -1,0 +1,31 @@
+---
+title: "Aceh"
+---
+
+![](../assets/img/lambang/11.png){.irbi-lambang fig-alt="Lambang Aceh" width=0.8in}
+
+{{< include /_gen/provinsi/11-ringkasan.md >}}
+
+## Profil Wilayah
+
+Aceh merupakan provinsi yang terletak di paling barat di Pulau Sumatera Indonesia. Beribukota di Kota Banda Aceh yang menjadi pusat pemerintahan. Luas wilayah Provinsi Aceh seluas 56.839,0 km² ini terdiri dari 18 kabupaten dan 5 kota dengan jumlah penduduk di tahun 2025 mencapai 5,5 juta jiwa (BPS, 2025).
+
+Kondisi topografi Aceh cukup beragam, didominasi oleh pegunungan dengan titik tertinggi di Gunung Leuser dan dataran terendah tersebar di sepanjang garis pantai utara-timur yang landai dan barat-selatan yang lebih terjal. Secara geologis, Aceh berada di zona tektonik aktif yaitu pertemuan lempeng Indo-Australia dan Eurasia. Wilayahnya dibelah oleh Sesar Besar Sumatera dan memiliki deretan gunung api aktif, menjadikan wilayah aceh kaya mineral dan gas alam namun rawan gempa. Kondisi klimatologi Aceh yang beriklim tropis dengan curah hujan cukup tinggi, namun distribusinya berbeda antar wilayah. Wilayah Barat-Selatan cenderung lebih basah dibandingkan pesisir timur.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah kebakaran hutan dan lahan, banjir serta cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025 pada Aceh memiliki kelas risiko Tinggi dengan nilai 192,75.
+
+{{< include /_gen/provinsi/11-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Tsunami, Kebakaran Hutan dan Lahan, Kekeringan, Letusan Gunung Api, Cuaca Ekstrem, Tanah Longsor.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/11-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/11-tabel.md >}}

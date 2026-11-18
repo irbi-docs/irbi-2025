@@ -1,0 +1,166 @@
+project:
+  type: book
+  output-dir: _book
+  # Membuat tabel, ringkasan, data peta interaktif, peta SVG & PDF dari folder data/
+  pre-render: python3 scripts/bangun.py
+  resources:
+    - "data/*.csv"
+    - "data/geo/*.geojson"
+    - "data/geo/*.txt"
+    - "peta/pdf/*.pdf"
+    - "assets/data/*.js"
+    - "assets/js/*.js"
+    - "assets/vendor/leaflet/**"
+    - "assets/img/lambang/*.png"
+    - "assets/img/logo-bnpb.png"
+    - "assets/img/sampul.jpg"
+    - "assets/vendor/jspdf/*"
+    - "assets/kustom/*.js"
+
+lang: id
+
+book:
+  title: "Indeks Risiko Bencana Indonesia Tahun 2025"
+  subtitle: "Edisi digital interaktif"
+  author: "Badan Nasional Penanggulangan Bencana (BNPB)"
+  date: "2026-01"
+  date-format: "MMMM YYYY"
+  output-file: "IRBI-2025"
+  cover-image: assets/img/sampul.jpg
+  cover-image-alt: "Sampul buku IRBI 2025: foto udara aliran sungai pascabencana"
+  favicon: assets/img/logo-bnpb.png
+  downloads: [pdf]
+  search: true
+  page-navigation: true
+  reader-mode: true
+  back-to-top-navigation: true
+  navbar:
+    title: "IRBI 2025"
+    left:
+      - text: Beranda
+        href: index.qmd
+      - text: Jelajah Data
+        href: jelajah.qmd
+      - text: Provinsi
+        href: provinsi/index.qmd
+      - text: Ancaman
+        href: ancaman/index.qmd
+      - text: Unduhan
+        href: unduhan.qmd
+    right:
+      - icon: palette2
+        text: Studio
+        href: studio.qmd
+        aria-label: Studio — ubah data, tampilan, dan teks
+  sidebar:
+    style: docked
+    collapse-level: 1
+  page-footer:
+    left: "IRBI 2025 · Badan Nasional Penanggulangan Bencana"
+    right: "Dibuat dengan [Quarto](https://quarto.org)"
+  chapters:
+    - index.qmd
+    - jelajah.qmd
+    - ringkasan-eksekutif.qmd
+    - sambutan.qmd
+    - pendahuluan.qmd
+    - metodologi.qmd
+    - part: "Hasil Analisis Data"
+      chapters:
+        - hasil-provinsi.qmd
+        - hasil-kabkota.qmd
+    - part: provinsi/index.qmd
+      chapters:
+        - provinsi/11-aceh.qmd
+        - provinsi/12-sumatera-utara.qmd
+        - provinsi/13-sumatera-barat.qmd
+        - provinsi/14-riau.qmd
+        - provinsi/15-jambi.qmd
+        - provinsi/16-sumatera-selatan.qmd
+        - provinsi/17-bengkulu.qmd
+        - provinsi/18-lampung.qmd
+        - provinsi/19-kepulauan-bangka-belitung.qmd
+        - provinsi/21-kepulauan-riau.qmd
+        - provinsi/31-dki-jakarta.qmd
+        - provinsi/32-jawa-barat.qmd
+        - provinsi/33-jawa-tengah.qmd
+        - provinsi/34-daerah-istimewa-yogyakarta.qmd
+        - provinsi/35-jawa-timur.qmd
+        - provinsi/36-banten.qmd
+        - provinsi/51-bali.qmd
+        - provinsi/52-nusa-tenggara-barat.qmd
+        - provinsi/53-nusa-tenggara-timur.qmd
+        - provinsi/61-kalimantan-barat.qmd
+        - provinsi/62-kalimantan-tengah.qmd
+        - provinsi/63-kalimantan-selatan.qmd
+        - provinsi/64-kalimantan-timur.qmd
+        - provinsi/65-kalimantan-utara.qmd
+        - provinsi/71-sulawesi-utara.qmd
+        - provinsi/72-sulawesi-tengah.qmd
+        - provinsi/73-sulawesi-selatan.qmd
+        - provinsi/74-sulawesi-tenggara.qmd
+        - provinsi/75-gorontalo.qmd
+        - provinsi/76-sulawesi-barat.qmd
+        - provinsi/81-maluku.qmd
+        - provinsi/82-maluku-utara.qmd
+        - provinsi/91-papua.qmd
+        - provinsi/92-papua-barat.qmd
+        - provinsi/93-papua-selatan.qmd
+        - provinsi/94-papua-tengah.qmd
+        - provinsi/95-papua-pegunungan.qmd
+        - provinsi/96-papua-barat-daya.qmd
+    - part: ancaman/index.qmd
+      chapters:
+        - ancaman/banjir.qmd
+        - ancaman/gempabumi.qmd
+        - ancaman/tsunami.qmd
+        - ancaman/letusan-gunungapi.qmd
+        - ancaman/banjir-bandang.qmd
+        - ancaman/gelombang-ekstrem-abrasi.qmd
+        - ancaman/kebakaran-hutan-lahan.qmd
+        - ancaman/tanah-longsor.qmd
+        - ancaman/kekeringan.qmd
+        - ancaman/likuefaksi.qmd
+        - ancaman/cuaca-ekstrem.qmd
+    - daftar-pustaka.qmd
+  appendices:
+    - unduhan.qmd
+    - studio.qmd
+    - panduan-edit.qmd
+
+number-sections: false
+crossref:
+  fig-prefix: Gambar
+  tbl-prefix: Tabel
+
+format:
+  html:
+    theme:
+      light: [cosmo, brand, assets/css/irbi.scss]
+      dark: [cosmo, brand, assets/css/irbi.scss, assets/css/irbi-gelap.scss]
+    respect-user-color-scheme: true
+    include-in-header: assets/html/kepala.html
+    toc: true
+    toc-title: "Di halaman ini"
+    toc-depth: 2
+    smooth-scroll: true
+    link-external-newwindow: true
+    fig-responsive: true
+    lightbox: true
+    html-math-method: katex
+    grid:
+      sidebar-width: 290px
+      body-width: 860px
+      margin-width: 230px
+  typst:
+    papersize: a4
+    fontsize: 10pt
+    toc: true
+    toc-depth: 1
+    margin:
+      x: 2.2cm
+      y: 2.2cm
+    include-in-header: assets/typst/irbi.typ
+    template-partials:
+      - assets/typst/typst-show.typ
+    fig-format: svg

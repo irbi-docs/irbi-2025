@@ -1,0 +1,128 @@
+---
+title: "Panduan Mengedit"
+---
+
+Ada dua cara mengubah buku digital ini:
+
+1. **Langsung di aplikasi (tanpa kode, tanpa server)** melalui **Studio**. Cocok untuk koreksi angka,
+   penyesuaian teks, dan pengaturan tampilan.
+2. **Melalui berkas sumber** (`.qmd`, `.csv`, `_brand.yml`) lalu *render* ulang. Cara ini diperlukan untuk
+   memperbarui PDF buku lengkap dan peta baku.
+
+## 1. Mengedit langsung di aplikasi (Studio)
+
+Buka **Studio** dari tombol di pojok kanan bawah setiap halaman, atau dari halaman [Studio](studio.qmd).
+
+| Yang diubah | Caranya | Berlaku pada |
+|:--|:--|:--|
+| Warna tema, warna kelas risiko, huruf, ukuran teks, sudut, kepadatan, animasi | Studio › **Tampilan** | seluruh situs |
+| Mode terang / gelap / ikut sistem | Studio › Tampilan, atau ikon di bilah atas | seluruh situs |
+| Peta dasar, opasitas, label, batas provinsi | Studio › Tampilan › Peta | semua peta |
+| Teks paragraf, judul, butir daftar | Studio › **Teks** › *Mode edit teks*, lalu klik teksnya | halaman tersebut |
+| Skor, kelas, ambang kelas | halaman [Studio](studio.qmd) › Studio Data, atau Studio › **Data** › Impor CSV | peta, tabel, kartu, grafik, CSV, dan PDF sesuai filter |
+
+Semua perubahan tersimpan otomatis di peramban Anda. Untuk memindahkan atau membagikannya, buka
+Studio › **Simpan**:
+
+- **Ekspor paket (.json):** satu berkas berisi semua perubahan, untuk dipindahkan ke perangkat lain atau
+  dikirim ke rekan.
+- **Impor paket:** memuat paket dari perangkat atau rekan lain.
+- **Terbitkan untuk semua pembaca (.js):** salin `irbi-kustom.js` ke folder `assets/kustom/` situs yang
+  dipublikasikan (`_book/assets/kustom/`). Semua pembaca langsung melihat perubahan tanpa render ulang dan
+  tanpa server. Hapus berkas untuk membatalkan.
+
+::: {.callout-tip appearance="simple"}
+## Mengapa tidak perlu server?
+
+Situs ini sepenuhnya statis. Data buku dimuat dari `assets/data/irbi-data.js`. Paket terbit
+(`assets/kustom/irbi-kustom.js`, bila ada) dan kustomisasi lokal di peramban diterapkan berlapis di atasnya,
+dengan kustomisasi lokal paling akhir. PDF sesuai filter juga dibuat di peramban (jsPDF), sehingga tidak ada
+data yang dikirim ke mana pun.
+:::
+
+### Memasukkan perubahan Studio ke sumber
+
+PDF buku lengkap (`IRBI-2025.pdf`) dan peta baku dibuat dari berkas sumber. Untuk memasukkan paket Studio ke
+sumber secara otomatis:
+
+```bash
+cd app
+python3 scripts/terapkan_kustom.py ~/Downloads/irbi-kustom-20260118.json   # atau irbi-kustom.js
+./jalankan.sh render
+```
+
+Skrip tersebut memperbarui `data/*.csv` (skor, kelas, ambang), warna di `_brand.yml`, dan teks di berkas `.qmd`
+yang cocok, lalu mencetak laporan perubahan yang diterapkan dan yang perlu dicek manual.
+
+## 2. Mengedit berkas sumber
+
+Buku digital ini dibuat dengan [Quarto](https://quarto.org). Semua isinya berupa berkas teks biasa.
+
+### Struktur folder
+
+```text
+app/
+├── _quarto.yml              # daftar bab, navigasi, format HTML & PDF
+├── _brand.yml               # warna (termasuk warna kelas risiko), huruf, logo
+├── index.qmd                # beranda
+├── jelajah.qmd              # Jelajah Data (peta & tabel interaktif)
+├── studio.qmd               # Studio (data, tampilan, teks)
+├── ringkasan-eksekutif.qmd, sambutan.qmd, pendahuluan.qmd, metodologi.qmd
+├── hasil-provinsi.qmd, hasil-kabkota.qmd
+├── provinsi/                # 38 halaman provinsi, mis. 11-aceh.qmd
+├── ancaman/                 # 11 halaman ancaman, mis. banjir.qmd
+├── data/                    # SUMBER DATA: irbi_kabkota.csv, irbi_provinsi.csv, irbi_ancaman.csv, ...
+├── assets/
+│   ├── css/irbi.scss        # gaya (variabel desain), irbi-gelap.scss untuk mode gelap
+│   ├── js/irbi-*.js         # inti, peta, jelajah, grafik, pdf, studio, editor
+│   ├── kustom/              # paket terbit Studio (opsional)
+│   └── typst/               # tampilan PDF buku
+├── scripts/bangun.py        # dijalankan otomatis sebelum render
+├── scripts/terapkan_kustom.py
+├── _gen/, peta/, assets/data/   # DIBUAT OTOMATIS — jangan diedit
+└── _book/                   # hasil render (situs + PDF)
+```
+
+### Mengedit teks
+
+Buka berkas `.qmd` di editor teks apa pun. Untuk tampilan seperti pengolah kata, gunakan
+[VS Code](https://code.visualstudio.com) atau [Positron](https://positron.posit.co) dengan ekstensi Quarto,
+lalu pilih *Visual Editor*. Formatnya Markdown: `## Judul`, `**tebal**`, `*miring*`, dan baris kosong untuk
+memisahkan paragraf. Baris seperti `{{{< include /_gen/provinsi/11-tabel.md >}}}` menyisipkan komponen yang dibuat
+otomatis dari data; biarkan apa adanya.
+
+### Mengedit data
+
+Edit `data/*.csv` dengan Excel, LibreOffice, atau editor teks, lalu simpan sebagai CSV (UTF-8, pemisah koma).
+Kolom `kelas` boleh dikosongkan (dihitung dari ambang di `jenis_indeks.csv`), kolom `peringkat` dihitung ulang,
+dan kolom `kode` (kode wilayah Kemendagri) jangan diubah karena menghubungkan data dengan peta. Studio Data
+juga bisa mengekspor berkas dengan format yang sama persis.
+
+### Mengubah warna dan huruf
+
+Ubah `_brand.yml`. Palet `tinggi`, `sedang`, dan `rendah` mengatur warna kelas risiko di semua keluaran:
+situs, PDF buku, dan peta baku.
+
+### Membangun ulang
+
+Prasyarat: [Quarto](https://quarto.org/docs/get-started/) dan Python 3.9 atau lebih baru, tanpa paket tambahan.
+
+```bash
+cd app
+./jalankan.sh preview   # pratinjau langsung
+./jalankan.sh render    # bangun semua: situs di _book/ dan _book/IRBI-2025.pdf
+```
+
+Pesan `[bangun] PERINGATAN` di terminal menandakan data yang perlu diperiksa. Peta baku yang datanya tidak
+berubah tidak dibuat ulang, sehingga render berikutnya lebih cepat.
+
+### Menambah halaman
+
+Buat berkas `.qmd` baru dengan judul di bagian atas, lalu daftarkan di `_quarto.yml` pada bagian `chapters:`.
+
+## Membagikan hasil
+
+Folder `_book/` adalah situs statis lengkap. Salin isinya ke server web atau hosting statis (server internal,
+GitHub Pages, Netlify), atau kirim sebagai ZIP. Situs juga bisa dibuka langsung dari `_book/index.html` tanpa
+server. Peta dasar (ubin latar) membutuhkan internet, tetapi pewarnaan wilayah, tabel, Studio, dan PDF sesuai
+filter tetap berfungsi tanpa internet.

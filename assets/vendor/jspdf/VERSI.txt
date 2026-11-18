@@ -1,0 +1,4 @@
+jspdf 4.2.1
+svg2pdf.js 2.8.1
+jspdf-autotable 5.0.8
+Sumber: tarball resmi registry.npmjs.org, integritas sha512 diverifikasi 2026-11-18.

@@ -1,0 +1,17 @@
+---
+title: "Kebakaran Hutan dan Lahan"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana kebakaran hutan dan lahan tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/kebakaran-hutan-lahan-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Kebakaran Hutan dan Lahan
+
+{{< include /_gen/ancaman/kebakaran-hutan-lahan-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Kebakaran Hutan dan Lahan
+
+{{< include /_gen/ancaman/kebakaran-hutan-lahan-tabel.md >}}

@@ -1,0 +1,31 @@
+---
+title: "Kalimantan Timur"
+---
+
+![](../assets/img/lambang/64.png){.irbi-lambang fig-alt="Lambang Kalimantan Timur" width=0.8in}
+
+{{< include /_gen/provinsi/64-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Kalimantan Timur beribukota di Kota Samarinda memiliki luas wilayah 126.981,279 km². Wilayah administrasi Provinsi Kalimantan Timur terdiri dari 7 kabupaten dan 3 kota, dengan jumlah penduduk di tahun 2025 mencapai 4.267.600 jiwa (BPS Kalimantan Timur, 2025).
+
+Kondisi geologi pada Provinsi Kalimantan Timur terdapat lajur lipatan dan sesar naik yang menunjukkan aktivitas tektonik yang signifikan. Struktur ini memiliki kecondongan ke arah timur. Topografi pada provinsi Kalimantan Timur di dataran rendah umumnya terletak sepanjang aliran sungai, seperti Sungai Mahakam. Pegunungan tersebar di bagian barat provinsi, dengan banyaknya daerah yang memiliki kemiringan yang curam. Kondisi klimatologi pada provinsi Kalimantan Timur memiliki curah hujan tahunan pada tahun 2024 sebesar 2147,50 mm/tahun dengan jumlah hari hujan sebanyak 274 hari dan tingkat penyinaran matahari sebesar 5,65%.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Kalimantan Timur adalah bencana banjir serta kebakaran hutan dan lahan. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Kalimantan Timur memiliki kelas risiko sedang dengan nilai 117,73.
+
+{{< include /_gen/provinsi/64-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Kekeringan, Kebakaran Hutan dan Lahan, Tanah Longsor, Likuefaksi, Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/64-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/64-tabel.md >}}

@@ -1,0 +1,12 @@
+---
+title: "Indeks Risiko Bencana Provinsi 2025"
+---
+
+Bagian ini menyajikan profil wilayah, peta, dan tabel Indeks Risiko Bencana tahun 2025 untuk setiap provinsi
+di Indonesia, mulai dari Aceh hingga Papua Barat Daya.
+
+::: {.content-visible when-format="html"}
+Pilih provinsi untuk membuka halamannya. Angka pada kartu adalah nilai IRB provinsi tahun 2025.
+
+{{< include /_gen/kartu-provinsi.md >}}
+:::

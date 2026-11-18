@@ -1,0 +1,31 @@
+---
+title: "Kalimantan Utara"
+---
+
+![](../assets/img/lambang/65.png){.irbi-lambang fig-alt="Lambang Kalimantan Utara" width=0.8in}
+
+{{< include /_gen/provinsi/65-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Kalimantan Utara beribukota di Kabupaten Bulungan memiliki luas wilayah 70.101,00 km². Wilayah administrasi Provinsi Kalimantan Utara terdiri dari 4 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 mencapai 7.494.000 jiwa (BPS Kalimantan Utara, 2025).
+
+Kondisi geologi Provinsi Kalimantan Utara ditandai dengan lima lipatan utama, termasuk lipatan Sebatik dan Tarakan, yang terbentuk akibat kompresi berarah timur laut-barat daya. Selain itu, terdapat sesar-sesar seperti Sesar Sampoerna dan Sesar Mangkalihat. Topografi wilayah ini didominasi oleh dataran rendah, namun di bagian tengah dan selatan terdapat beberapa perbukitan dan pegunungan, termasuk Pegunungan Muller. Untuk kondisi klimatologi, rata-rata suhu udara di Provinsi Kalimantan Utara pada 2024 adalah 27,84°C. Rata-rata kelembaban udara di Provinsi Kalimantan Utara pada tahun 2024 adalah 84,26% dengan rata-rata titik maksimal pada 96,27% dan rata-rata titik minimal pada 60,71%. Durasi penyinaran matahari di Provinsi Kalimantan Utara mencapai 54,13%. Untuk kondisi hujan, jumlah curah hujan di Provinsi Kalimantan Utara pada 2024 adalah 2.982,60 mm dengan rata-rata jumlah hari hujan adalah 280 hari selama tahun 2024.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi di Provinsi Kalimantan Utara adalah bencana kebakaran hutan dan lahan serta banjir. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) tahun 2025 pada Provinsi Kalimantan Utara memiliki kelas risiko sedang dengan nilai 121,35.
+
+{{< include /_gen/provinsi/65-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempabumi, Kekeringan, Kebakaran Hutan dan Lahan, Tanah Longsor, Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/65-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/65-tabel.md >}}

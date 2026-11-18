@@ -1,0 +1,47 @@
+---
+title: "Unduhan"
+---
+
+::: {.content-visible when-format="html"}
+## Buku lengkap
+
+- [Buku IRBI 2025 edisi digital (PDF)](IRBI-2025.pdf){download="IRBI-2025.pdf"}. Versi PDF dari seluruh
+  halaman di situs ini, termasuk peta statis lengkap dengan keterangannya.
+
+## PDF sesuai filter
+
+Butuh peta untuk wilayah, ancaman, atau kelas tertentu? Buka [Jelajah Data](jelajah.qmd) atau peta di halaman
+provinsi/ancaman, atur filter, lalu klik **Unduh PDF sesuai filter**. PDF dibuat langsung di peramban dan
+memuat peta berketerangan, ringkasan filter dan statistik, klasifikasi kelas, parameter, serta tabel data
+lengkap (multi-bahaya dan 11 ancaman) untuk wilayah yang tersaring. Perubahan data dari Studio ikut terbawa.
+
+## Peta baku siap cetak (PDF)
+
+Peta baku tanpa filter, berukuran A4 lanskap, memuat judul, keterangan kelas risiko, panah utara, skala,
+tabel skor, parameter penyusun indeks, dan sumber data.
+
+{{< include _gen/daftar-unduhan-peta.md >}}
+
+## Data
+
+| Berkas | Isi |
+|:-------|:----|
+| [irbi_kabkota.csv](data/irbi_kabkota.csv) | Skor dan kelas IRBI multi-bahaya 514 kabupaten/kota |
+| [irbi_provinsi.csv](data/irbi_provinsi.csv) | Nilai IRBI 38 provinsi (kolom SEB dan 2025) |
+| [irbi_ancaman.csv](data/irbi_ancaman.csv) | Skor dan kelas per jenis ancaman (11 ancaman) |
+| [jenis_indeks.csv](data/jenis_indeks.csv) | Daftar jenis indeks dan ambang kelas |
+| [ikd_2025.csv](data/ikd_2025.csv) | Komposisi kelas IKD 2025 |
+| [kabkota.geojson](data/geo/kabkota.geojson) | Batas 514 kabupaten/kota (disederhanakan) |
+| [provinsi.geojson](data/geo/provinsi.geojson) | Batas 38 provinsi (disederhanakan) |
+
+: Berkas data edisi digital {#tbl-unduhan-data}
+
+Batas wilayah bersumber dari [cahyadsn/wilayah_boundaries](https://github.com/cahyadsn/wilayah_boundaries)
+(lisensi MIT, [teks lisensi](data/geo/LICENSE-wilayah_boundaries.txt)) yang mengikuti Kepmendagri
+No. 300.2.2-2430 Tahun 2025.
+:::
+
+::: {.content-visible when-format="typst"}
+Berkas data (CSV dan GeoJSON) serta peta siap cetak per provinsi dan per ancaman tersedia pada edisi HTML
+buku ini, di halaman *Unduhan*.
+:::

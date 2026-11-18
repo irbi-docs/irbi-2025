@@ -1,0 +1,33 @@
+---
+title: "Bali"
+---
+
+![](../assets/img/lambang/51.png){.irbi-lambang fig-alt="Lambang Bali" width=0.8in}
+
+{{< include /_gen/provinsi/51-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Bali beribukota di Kota Denpasar, dengan luas wilayah 5.590,15 km². Wilayah administrasi Provinsi Bali terdiri dari 8 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 sebanyak 4,4 juta jiwa. (BPS, 2025)
+
+Secara topografis, di bagian-tengah Pulau Bali terbentang pegunungan yang memanjang dari Barat ke Timur, di mana terdapat gugusan gunung berapi, yaitu Gunung Agung (3.142 m) dan Gunung Batur (1.717 m), serta Gunung Merbuk (1.356 m), Gunung Patas (1.414 m), dan Gunung Seraya (1.058 m) yang tidak berapi (RPJMD Provinsi Bali 2025-2029).
+
+Bentangan pegunungan tersebut di atas membagi wilayah Provinsi Bali menjadi dua kondisi topografi. Bagian utara memiliki dataran rendah yang sempit dan kurang landai dan bagian selatan memiliki dataran rendah yang luas dan landai. Kondisi geologi pada provinsi Bali sebagian besar didominasi oleh tanah Regosol dan Latosol. Hanya sebagian kecil terdapat jenis tanah Alluvial, Mediteran, dan Andosol. Wilayah Provinsi Bali beriklim tropis, sebagaimana wilayah lainnya di Indonesia, yaitu penghujan dan kemarau. Terdapat musim kemarau dan musim hujan yang diselingi dengan musim pancaroba.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir, cuaca ekstrem, dan tanah longsor. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Bali memiliki kelas risiko Sedang dengan nilai 123,35.
+
+{{< include /_gen/provinsi/51-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Likuefaksi, Kebakaran Hutan dan Lahan, Letusan Gunung Api, Kekeringan, Tanah Longsor, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/51-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/51-tabel.md >}}

@@ -1,0 +1,17 @@
+---
+title: "Tanah Longsor"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana tanah longsor tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/tanah-longsor-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Tanah Longsor
+
+{{< include /_gen/ancaman/tanah-longsor-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Tanah Longsor
+
+{{< include /_gen/ancaman/tanah-longsor-tabel.md >}}

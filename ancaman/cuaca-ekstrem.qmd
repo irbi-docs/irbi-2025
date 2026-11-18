@@ -1,0 +1,17 @@
+---
+title: "Cuaca Ekstrem"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana cuaca ekstrem tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/cuaca-ekstrem-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Cuaca Ekstrem
+
+{{< include /_gen/ancaman/cuaca-ekstrem-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Cuaca Ekstrem
+
+{{< include /_gen/ancaman/cuaca-ekstrem-tabel.md >}}

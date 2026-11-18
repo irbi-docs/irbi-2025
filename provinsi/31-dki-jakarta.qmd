@@ -1,0 +1,31 @@
+---
+title: "DKI Jakarta"
+---
+
+![](../assets/img/lambang/31.png){.irbi-lambang fig-alt="Lambang DKI Jakarta" width=0.8in}
+
+{{< include /_gen/provinsi/31-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi DKI Jakarta beribukota di Kota Administrasi Jakarta Pusat, dengan luas wilayah 660,98 km². Wilayah administrasi Provinsi DKI Jakarta terdiri dari 1 kabupaten dan 5 kota, dengan jumlah penduduk di tahun 2025 sebanyak 10,68 juta jiwa. (BPS, 2025)
+
+Provinsi DKI Jakarta terletak pada dataran rendah dengan ketinggian rata-rata 7 m di atas permukaan laut. Sekitar 40% wilayah Provinsi DKI Jakarta berupa dataran yang permukaan tanahnya berada 1–1,5 m di bawah muka laut pasang. Provinsi DKI Jakarta termasuk dalam satuan morfologi dengan kemiringan lereng 0–0,5% dan ketinggian kurang dari 10 mdpl di daerah pantai hingga 70 mdpl di bagian selatan Jakarta mendekati Bogor. Secara geologi struktur seluruh daerah di Jakarta terdiri dari endapan Pleistocene yang terdapat ±50 meter di bawah permukaan tanah. Wilayah Provinsi DKI Jakarta termasuk ke dalam iklim tropis. Iklim tropis memiliki karakteristik musim hujan rata-rata pada bulan Oktober hingga Maret dan musim kemarau pada bulan April hingga September. Puncak musim hujan Jakarta terjadi pada bulan November hingga Januari dengan curah hujan dan hari hujan tertinggi pada bulan Januari dan bulan Februari. Iklim tropis di Jakarta juga ditandai dengan kelembaban udara yang tinggi, dengan rata-rata harian 55 hingga 90% (RPJMD Provinsi DKI Jakarta 2025-2029).
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir dan cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi DKI Jakarta memiliki kelas risiko Sedang dengan nilai 57,58.
+
+{{< include /_gen/provinsi/31-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kekeringan, Likuefaksi, Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/31-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/31-tabel.md >}}

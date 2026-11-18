@@ -1,0 +1,33 @@
+---
+title: "Lampung"
+---
+
+![](../assets/img/lambang/18.png){.irbi-lambang fig-alt="Lambang Lampung" width=0.8in}
+
+{{< include /_gen/provinsi/18-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Lampung beribukota di Kota Bandar Lampung memiliki luas wilayah 33.575,41 km². Wilayah administrasi Provinsi Lampung terdiri dari 13 kabupaten dan 2 kota, dengan jumlah penduduk di tahun 2025 sebanyak 9,5 juta jiwa (BPS, 2025).
+
+Kondisi topografi Provinsi Lampung memiliki dataran tinggi berupa daerah berbukit hingga bergunung dengan lereng curam di atas 25% dan ketinggian rata-rata 300 meter dpl. Provinsi Lampung merupakan daerah beriklim tropis yang ditandai dengan suhu udara yang cukup panas dan curah hujan yang tinggi sepanjang tahun. Musim kemarau berlangsung antara bulan Mei hingga September, sementara musim hujan terjadi antara November hingga Mei, dengan curah hujan rata-rata tahunan mencapai 2.000 – 3.000 mm. (RPJMD Provinsi Lampung 2025-2029).
+
+Secara geologis, wilayah Provinsi Lampung berada di ujung patahan besar Sumatera dan bertetangga langsung dengan gunung api laut Krakatau.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir dan cuaca ekstrem. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Lampung memiliki kelas risiko Sedang dengan nilai 124,59.
+
+{{< include /_gen/provinsi/18-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kebakaran Hutan dan Lahan, Kekeringan, Letusan Gunung Api, Likuefaksi, Tanah Longsor, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/18-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/18-tabel.md >}}

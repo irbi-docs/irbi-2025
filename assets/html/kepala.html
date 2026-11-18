@@ -1,0 +1,24 @@
+<script>
+/* IRBI 2025 — pemuat. (1) Terapkan gaya Studio yang tersimpan sebelum halaman tampil (mencegah kedipan warna).
+   (2) Muat paket kustomisasi terbit (assets/kustom/irbi-kustom.js, opsional) lalu modul inti.
+   Bekerja juga saat situs dibuka langsung dari berkas (tanpa server). */
+window.IRBI_VERSI = '1beb1314ed';
+(function () {
+  try {
+    var css = localStorage.getItem('irbi2025:gaya');
+    if (css) { var st = document.createElement('style'); st.id = 'irbi-gaya-kustom'; st.textContent = css; document.head.appendChild(st); }
+  } catch (e) { /* penyimpanan peramban tidak tersedia */ }
+  function muat() {
+    var m = document.querySelector('meta[name="quarto:offset"]');
+    var akar = m ? m.getAttribute('content') : './';
+    window.IRBI_AKAR = akar;
+    var inti = function () { var s = document.createElement('script'); s.src = akar + 'assets/js/irbi-inti.js?v=' + window.IRBI_VERSI; document.head.appendChild(s); };
+    var k = document.createElement('script');
+    k.src = akar + 'assets/kustom/irbi-kustom.js?t=' + Math.floor(Date.now() / 60000);
+    k.onload = inti;
+    k.onerror = inti;
+    document.head.appendChild(k);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', muat); else muat();
+})();
+</script>

@@ -1,0 +1,19 @@
+---
+title: "Indeks Risiko per Ancaman"
+---
+
+Bagian ini menyajikan tabel dan peta Indeks Risiko Bencana tahun 2025 untuk setiap jenis ancaman. Tidak
+semua kabupaten/kota dinilai untuk setiap ancaman; misalnya, indeks tsunami hanya dihitung untuk wilayah yang
+terpapar tsunami.
+
+::: {.content-visible when-format="html"}
+```{=html}
+<div class="irbi-panel"><h3>Jumlah kabupaten/kota per kelas risiko</h3><div class="irbi-grafik" data-jenis="ancaman"></div></div>
+```
+:::
+
+::: {.content-visible when-format="typst"}
+![Jumlah kabupaten/kota per kelas risiko untuk setiap jenis ancaman](../peta/svg/grafik-ancaman.svg){#fig-grafik-ancaman}
+:::
+
+{{< include /_gen/ringkasan-ancaman.md >}}

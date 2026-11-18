@@ -1,0 +1,17 @@
+---
+title: "Likuefaksi"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana likuefaksi tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/likuefaksi-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Likuefaksi
+
+{{< include /_gen/ancaman/likuefaksi-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Likuefaksi
+
+{{< include /_gen/ancaman/likuefaksi-tabel.md >}}

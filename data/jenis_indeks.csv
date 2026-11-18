@@ -1,0 +1,13 @@
+slug,nama,batas_sedang,batas_tinggi,tampilkan_rentang,keterangan
+irbi,Multi-bahaya (IRBI),14.67,176.00,ya,"Ambang kelas sesuai buku IRBI 2025: Rendah < 14,67; Sedang 14,67–176,00; Tinggi > 176,00."
+banjir,Banjir,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku; dipakai editor untuk mengelaskan ulang skor yang diubah.
+gempabumi,Gempabumi,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+tsunami,Tsunami,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+letusan-gunungapi,Letusan Gunungapi,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+banjir-bandang,Banjir Bandang,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+gelombang-ekstrem-abrasi,Gelombang Ekstrem dan Abrasi,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+kebakaran-hutan-lahan,Kebakaran Hutan dan Lahan,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+tanah-longsor,Tanah Longsor,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+kekeringan,Kekeringan,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+likuefaksi,Likuefaksi,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.
+cuaca-ekstrem,Cuaca Ekstrem,5.33,12.00,tidak,Ambang diturunkan dari pola kelas pada tabel buku.

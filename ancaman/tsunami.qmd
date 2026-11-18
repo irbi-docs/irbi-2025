@@ -1,0 +1,17 @@
+---
+title: "Tsunami"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana tsunami tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/tsunami-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Tsunami
+
+{{< include /_gen/ancaman/tsunami-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Tsunami
+
+{{< include /_gen/ancaman/tsunami-tabel.md >}}

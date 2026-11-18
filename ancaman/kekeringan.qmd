@@ -1,0 +1,17 @@
+---
+title: "Kekeringan"
+---
+
+Bagian ini menyajikan Indeks Risiko Bencana kekeringan tahun 2025 untuk setiap kabupaten/kota
+yang dinilai, diurutkan dari skor tertinggi. Kabupaten/kota yang tidak tercantum pada tabel tidak dinilai
+untuk jenis ancaman ini dan ditampilkan abu-abu pada peta.
+
+{{< include /_gen/ancaman/kekeringan-ringkasan.md >}}
+
+## Peta Indeks Risiko Bencana Kekeringan
+
+{{< include /_gen/ancaman/kekeringan-peta.md >}}
+
+## Tabel Indeks Risiko Bencana Kekeringan
+
+{{< include /_gen/ancaman/kekeringan-tabel.md >}}

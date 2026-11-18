@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+$body-bg: #0C171C;
+$body-color: #E2EBEE;
+$sidebar-bg: #102127;
+$navbar-bg: #0A2E37;
+
+/*-- scss:rules --*/
+// Variabel desain untuk mode gelap (berkas ini hanya aktif saat mode gelap dipilih).
+:root {
+  --irbi-primer: #0F4A59;
+  --irbi-primer-2: #1B6A7E;
+  --irbi-primer-lembut: #12303A;
+  --irbi-aksen: #C9A86E;
+  --irbi-aksen-2: #E7C98F;
+  --irbi-tautan: #5EC1D6;
+  --irbi-judul: #EAF3F5;
+  --irbi-latar: #0C171C;
+  --irbi-permukaan: #12232A;
+  --irbi-permukaan-2: #172C34;
+  --irbi-teks: #E2EBEE;
+  --irbi-teks-2: #9FB4BC;
+  --irbi-garis: #27424C;
+  --irbi-tanpa: #4A5A60;
+  --irbi-bayangan: 0 1px 2px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .3);
+  --irbi-bayangan-angkat: 0 14px 34px rgba(0, 0, 0, .45);
+  --irbi-kaca: rgba(18, 35, 42, .86);
+}
+.irbi-legenda .kotak-tanpa { background: repeating-linear-gradient(45deg, #4A5A60, #4A5A60 3px, #22343A 3px, #22343A 5px); }
+.irbi-label-peta span { color: #F2F7F8; text-shadow: 0 0 2px #000, 0 0 3px #000, 0 0 4px #000; }
+.leaflet-container { background: #10252C; }
+.irbi-jl-peta { background: #10252C; }
+.irbi-galat { background: #3B1414; color: #FECACA; }
+.irbi-toast { background: #1E3A43; }
+.leaflet-bar a, .leaflet-control-layers { background: #172C34; color: #E2EBEE; border-color: #27424C; }
+.leaflet-control-layers-expanded { color: #E2EBEE; }
+.leaflet-control-attribution { background: rgba(18, 35, 42, .8) !important; color: #9FB4BC; a { color: #5EC1D6; } }
+.leaflet-control-scale-line { background: rgba(18, 35, 42, .8); color: #E2EBEE; border-color: #9FB4BC; }

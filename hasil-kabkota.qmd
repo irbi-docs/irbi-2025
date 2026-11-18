@@ -1,0 +1,19 @@
+---
+title: "Indeks Risiko Bencana Kabupaten/Kota"
+---
+
+Indeks Risiko Bencana Kabupaten/Kota merupakan hasil perhitungan untuk multi bahaya dan diurutkan
+berdasarkan total skor yang dapat dilihat pada tabel berikut.
+
+::: {.content-visible when-format="html"}
+Pada peta interaktif, pilih jenis indeks (multi-bahaya atau salah satu dari 11 ancaman) untuk mewarnai
+ulang peta. Klik sebuah kabupaten/kota untuk melihat profil risikonya pada semua jenis ancaman.
+:::
+
+## Peta Indeks Risiko Bencana Kabupaten/Kota
+
+{{< include _gen/peta-kabkota.md >}}
+
+## Tabel Indeks Risiko Bencana Kabupaten/Kota
+
+{{< include _gen/tabel-kabkota.md >}}

@@ -1,0 +1,31 @@
+---
+title: "Bengkulu"
+---
+
+![](../assets/img/lambang/17.png){.irbi-lambang fig-alt="Lambang Bengkulu" width=0.8in}
+
+{{< include /_gen/provinsi/17-ringkasan.md >}}
+
+## Profil Wilayah
+
+Provinsi Bengkulu beribukota Kota Bengkulu, memiliki luas wilayah 20.130,21 km². Wilayah administrasi Provinsi Bengkulu terdiri dari 9 kabupaten dan 1 kota, dengan jumlah penduduk di tahun 2025 mencapai 2,13 juta jiwa (BPS, 2025).
+
+Wilayah Provinsi Bengkulu memiliki topografi beragam, kontur bergelombang dengan ketinggian tempat berkisar antara 0-1.938 meter diatas permukaan laut (dpl). Titik terendah dijumpai di sepanjang pantai sedangkan titik tertinggi terletak di Puncak Gunung Kaba. Secara geologis, Provinsi Bengkulu adalah salah satu wilayah dengan aktivitas tektonik paling tinggi di Indonesia, karena dilewati Patahan Besar Sumatera, kemudian pada lepas Pantai Benduku merupakan zona pertemuan Lempeng Indo-Australia yang menunjam ke bawah Lempeng Eurasia dan terdapat gunung aktif seperti Gunung Kaba. Musim yang terjadi di Wilayah Provinsi Bengkulu, sebagaimana wilayah lain di Indonesia dikenal mengalami dua musim, yaitu musim hujan yang terjadi di bulan Desember Maret dan musim kemarau yang terjadi di bulan Juni-September. Sementara pada bulan April-Mei dan Oktober-November merupakan masa peralihan atau pancaroba.
+
+Berdasarkan Data dan Informasi Bencana Indonesia (DIBI) tahun 2025, bencana yang paling banyak terjadi adalah banjir, kebakaran hutan dan lahan, serta tanah longsor. Pengukuran Indeks Risiko Bencana Indonesia (IRBI) 2025, Provinsi Bengkulu memiliki kelas risiko Tinggi dengan nilai 183,60.
+
+{{< include /_gen/provinsi/17-catatan.md >}}
+
+::: {.callout-note appearance="simple" icon=false}
+## Ancaman Bencana
+
+Banjir, Banjir Bandang, Cuaca Ekstrem, Gelombang Ekstrem dan Abrasi, Gempa Bumi, Kekeringan, Kebakaran Hutan dan Lahan, Letusan Gunung Api, Tanah Longsor, Likuefaksi, dan Tsunami.
+:::
+
+## Peta Indeks Risiko Bencana
+
+{{< include /_gen/provinsi/17-peta.md >}}
+
+## Tabel Nilai Indeks Risiko
+
+{{< include /_gen/provinsi/17-tabel.md >}}
