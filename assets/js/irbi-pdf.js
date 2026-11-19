@@ -31,20 +31,34 @@
       d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
   }
   function f2(x) { return I.fmt(x); }
+  /** Palet PDF (selalu versi terang agar tercetak baik, tetapi mengikuti tema/palet Studio). */
+  function warnaPdf() {
+    var C = { primer: rgb(I.warna('primer', '#0B3C49')), aksen: rgb(I.warna('aksen', '#A68B5B')), teks: [31, 45, 51], abu: [85, 101, 109], garis: [200, 211, 216] };
+    if (I.gelap()) C.primer = rgb(I.warnaUtil.campur(I.warna('primer', '#0B3C49'), '#0B3C49', 0.5));
+    return C;
+  }
 
   // ------------------------------------------------------------------ dialog
-  function dialog(spec) {
+  var BATAS_PROFIL_KAB = 60;
+  function dialog(spec, mode) {
     var lama = document.querySelector('dialog.irbi-dialog-pdf');
     if (lama) lama.remove();
     var d = I.el('dialog', { class: 'irbi-dialog irbi-dialog-pdf', 'aria-labelledby': 'irbi-dlg-pdf-judul' });
     var satuan = spec.tingkat === 'provinsi' ? 'provinsi' : 'kabupaten/kota';
+    var n = spec.baris.length, bisaKab = spec.tingkat === 'kabkota' && n <= BATAS_PROFIL_KAB;
+    var judulLaporan = spec.judul.replace(/^Peta /, 'Laporan ');
     d.innerHTML =
       '<form class="irbi-dialog-isi">' +
       '<header><h3 id="irbi-dlg-pdf-judul"><i class="bi bi-file-earmark-pdf"></i> Unduh PDF sesuai filter</h3>' +
       '<button type="button" class="irbi-dialog-tutup" aria-label="Tutup"><i class="bi bi-x-lg"></i></button></header>' +
       '<div class="irbi-dialog-badan">' +
       '<div class="irbi-dlg-filter">' + spec.filterTeks.map(function (t) { return '<span class="irbi-pil">' + I.esc(t) + '</span>'; }).join('') + '</div>' +
+      '<fieldset class="irbi-dlg-f irbi-dlg-jenis"><legend>Jenis dokumen</legend>' +
+      '<label class="irbi-cek"><input type="radio" name="jenis" value="ringkas"> <span><b>Peta &amp; tabel</b> — lanskap, ringkas: peta berketerangan, ringkasan statistik, dan tabel data</span></label>' +
+      '<label class="irbi-cek"><input type="radio" name="jenis" value="laporan"> <span><b>Laporan lengkap seperti buku</b> — A4: sampul, daftar isi, narasi hasil, pendahuluan &amp; metodologi buku, peta, grafik, profil wilayah, penutup, dan lampiran</span></label>' +
+      '</fieldset>' +
       '<label class="irbi-dlg-f">Judul dokumen<input type="text" name="judul" class="form-control" maxlength="140"></label>' +
+      '<div data-untuk="ringkas">' +
       '<fieldset class="irbi-dlg-f"><legend>Isi PDF</legend>' +
       '<label class="irbi-cek"><input type="checkbox" name="peta" checked> Peta berketerangan (legenda, skala, arah utara' + (spec.prov ? ', inset lokasi' : '') + ')</label>' +
       '<label class="irbi-cek"><input type="checkbox" name="ringkasan" checked> Ringkasan filter, statistik, klasifikasi kelas, dan parameter</label>' +
@@ -53,7 +67,18 @@
         '<label class="irbi-cek"><input type="radio" name="lengkap" value="tidak"> Hanya indeks terpilih (' + I.esc(spec.namaIndeks) + ')</label></div>' : '') +
       '</fieldset>' +
       '<div class="irbi-dlg-baris"><label class="irbi-dlg-f">Ukuran kertas<select name="kertas" class="form-select"><option value="a4">A4 lanskap</option><option value="a3">A3 lanskap</option></select></label></div>' +
-      '<p class="irbi-dlg-info"><i class="bi bi-info-circle"></i> <b>' + spec.baris.length + '</b> ' + satuan + ' sesuai filter akan dimuat. PDF dibuat di peramban Anda; tidak ada data yang dikirim ke server.' +
+      '</div>' +
+      '<div data-untuk="laporan" hidden><fieldset class="irbi-dlg-f"><legend>Isi laporan</legend>' +
+      '<label class="irbi-cek"><input type="checkbox" checked disabled> Sampul, daftar isi, ringkasan &amp; narasi hasil, peta, grafik, dan penutup</label>' +
+      '<label class="irbi-cek"><input type="checkbox" name="pengantar" checked> Pendahuluan &amp; metodologi (teks buku, tabel parameter sesuai indeks)</label>' +
+      '<label class="irbi-cek"><input type="checkbox" name="profilProv" checked> Profil per provinsi (gambaran wilayah dari buku + analisis data)</label>' +
+      (spec.tingkat === 'kabkota' ? '<label class="irbi-cek"><input type="checkbox" name="profilKab"' + (bisaKab ? ' checked' : ' disabled') + '> Profil setiap kabupaten/kota' +
+        (bisaKab ? '' : ' <small>(tersedia bila hasil filter ≤ ' + BATAS_PROFIL_KAB + ' wilayah; saat ini ' + n + ')</small>') + '</label>' : '') +
+      '<label class="irbi-cek"><input type="checkbox" name="lampiran" checked> Lampiran tabel data lengkap</label>' +
+      '</fieldset>' +
+      (n > 150 ? '<p class="irbi-dlg-info"><i class="bi bi-hourglass-split"></i> Laporan untuk ' + n + ' wilayah cukup tebal dan butuh beberapa detik untuk dibuat.</p>' : '') +
+      '</div>' +
+      '<p class="irbi-dlg-info"><i class="bi bi-info-circle"></i> <b>' + n + '</b> ' + satuan + ' sesuai filter akan dimuat. PDF dibuat di peramban Anda; tidak ada data yang dikirim ke server.' +
       (spec.pdfStandar ? ' Perlu peta baku tanpa filter? <a href="' + I.esc(I.akar + spec.pdfStandar) + '" target="_blank" rel="noopener">Unduh PDF standar</a>.' : '') + '</p>' +
       '<div class="irbi-dlg-progres" hidden><div class="irbi-dlg-progres-bar"><span></span></div><span class="teks">Menyiapkan…</span></div>' +
       '</div>' +
@@ -61,31 +86,48 @@
       '<button type="submit" class="btn btn-irbi"><i class="bi bi-download"></i> Buat PDF</button></footer></form>';
     document.body.appendChild(d);
     var form = d.querySelector('form');
-    form.judul.value = spec.judul;
+    var jenis = function () { return form.querySelector('input[name=jenis]:checked').value; };
+    var aturJenis = function (j) {
+      form.querySelector('input[name=jenis][value="' + j + '"]').checked = true;
+      d.querySelectorAll('[data-untuk]').forEach(function (b) { b.hidden = b.getAttribute('data-untuk') !== j; });
+      if (!form.judul.dataset.diubah) form.judul.value = j === 'laporan' ? judulLaporan : spec.judul;
+    };
+    form.judul.addEventListener('input', function () { form.judul.dataset.diubah = '1'; });
+    form.querySelectorAll('input[name=jenis]').forEach(function (r) { r.addEventListener('change', function () { aturJenis(r.value); }); });
+    aturJenis(mode === 'laporan' ? 'laporan' : 'ringkas');
     var tutup = function () { d.close(); d.remove(); };
     d.querySelector('.irbi-dialog-tutup').addEventListener('click', tutup);
     d.querySelector('[data-batal]').addEventListener('click', tutup);
     d.addEventListener('cancel', function (e) { e.preventDefault(); tutup(); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var opsi = {
-        judul: form.judul.value.trim() || spec.judul, peta: form.peta.checked, ringkasan: form.ringkasan.checked, tabel: form.tabel.checked,
-        lengkap: spec.tingkat === 'kabkota' ? form.querySelector('input[name=lengkap]:checked').value === 'ya' : true, kertas: form.kertas.value
-      };
-      if (!opsi.peta && !opsi.ringkasan && !opsi.tabel) { I.toast('Pilih minimal satu isi PDF.', 'galat'); return; }
+      var lap = jenis() === 'laporan', jalan;
       var pr = d.querySelector('.irbi-dlg-progres');
+      var lapor = function (teks, t) { pr.querySelector('.teks').textContent = teks; pr.querySelector('.irbi-dlg-progres-bar span').style.width = Math.round(t * 100) + '%'; };
+      if (lap) {
+        var opsiL = { judul: form.judul.value.trim() || judulLaporan, pengantar: form.pengantar.checked, profilProv: form.profilProv.checked,
+          profilKab: !!(form.profilKab && form.profilKab.checked && !form.profilKab.disabled), lampiran: form.lampiran.checked };
+        jalan = function () { return I.modul('laporan').then(function () { return I.laporan.buat(spec, opsiL, lapor); }); };
+      } else {
+        var opsi = {
+          judul: form.judul.value.trim() || spec.judul, peta: form.peta.checked, ringkasan: form.ringkasan.checked, tabel: form.tabel.checked,
+          lengkap: spec.tingkat === 'kabkota' ? form.querySelector('input[name=lengkap]:checked').value === 'ya' : true, kertas: form.kertas.value
+        };
+        if (!opsi.peta && !opsi.ringkasan && !opsi.tabel) { I.toast('Pilih minimal satu isi PDF.', 'galat'); return; }
+        jalan = function () { return buat(spec, opsi, lapor); };
+      }
       pr.hidden = false;
       form.querySelectorAll('button, input, select').forEach(function (x) { x.disabled = true; });
-      var lapor = function (teks, t) { pr.querySelector('.teks').textContent = teks; pr.querySelector('.irbi-dlg-progres-bar span').style.width = Math.round(t * 100) + '%'; };
-      buat(spec, opsi, lapor).then(function (nama) {
+      jalan().then(function (nama) {
         tutup();
-        I.toast('PDF <b>' + I.esc(nama) + '</b> berhasil dibuat.', 'sukses', 5000);
+        I.toast((lap ? 'Laporan' : 'PDF') + ' <b>' + I.esc(nama) + '</b> berhasil dibuat.', 'sukses', 5000);
       }).catch(function (err) {
         if (window.console) console.error(err);
         lapor('Gagal membuat PDF: ' + (err && err.message), 1);
-        form.querySelectorAll('button, input, select').forEach(function (x) { x.disabled = false; });
+        form.querySelectorAll('button, input, select').forEach(function (x) { x.disabled = x.hasAttribute('data-kunci'); });
       });
     });
+    form.querySelectorAll('input[disabled]').forEach(function (x) { x.setAttribute('data-kunci', ''); });
     d.showModal();
     form.judul.focus();
     form.judul.select();
@@ -271,8 +313,7 @@
       var judul = aman(opsi.judul);
       doc.setProperties({ title: judul, subject: aman(spec.filterTeks.join(' · ')), author: 'Badan Nasional Penanggulangan Bencana (edisi digital IRBI 2025)',
         keywords: 'IRBI 2025, indeks risiko bencana, ' + aman(spec.namaIndeks), creator: 'Edisi digital IRBI 2025 (jsPDF, dibuat di peramban)' });
-      var C = { primer: rgb(I.warna('primer', '#0B3C49')), aksen: rgb(I.warna('aksen', '#A68B5B')), teks: [31, 45, 51], abu: [85, 101, 109], garis: [200, 211, 216] };
-      if (I.gelap()) C.primer = rgb(I.warnaUtil.campur(I.warna('primer', '#0B3C49'), '#0B3C49', 0.5));
+      var C = warnaPdf();
       var dibuat = tanggal();
       var nUbah = spec.baris.filter(function (r) { return r.diubah; }).length;
 
@@ -521,5 +562,6 @@
     }
   }
 
-  I.pdf = { dialog: dialog, buat: buat, petaSVG: petaSVG };
+  I.pdf = { dialog: dialog, buat: buat, petaSVG: petaSVG,
+    util: { aman: aman, rgb: rgb, teksAtas: teksAtas, tanggal: tanggal, warna: warnaPdf, singkat: SINGKAT } };
 })();

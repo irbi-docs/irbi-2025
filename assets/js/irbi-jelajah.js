@@ -159,9 +159,11 @@
     var aksi = I.el('div', { class: 'irbi-jl-aksi' });
     var tPdf = I.el('button', { type: 'button', class: 'btn btn-sm btn-irbi', title: 'PDF berisi peta, keterangan, ringkasan, dan tabel data lengkap sesuai filter' }, '<i class="bi bi-file-earmark-pdf"></i> Unduh PDF sesuai filter');
     tPdf.addEventListener('click', function () { self.unduhPdf(); });
+    var tLap = I.el('button', { type: 'button', class: 'btn btn-sm btn-outline-irbi', title: 'Laporan lengkap seperti buku IRBI (PDF A4): narasi hasil, pendahuluan, metodologi, peta, grafik, profil wilayah, dan lampiran sesuai filter' }, '<i class="bi bi-journal-text"></i> Laporan');
+    tLap.addEventListener('click', function () { self.unduhPdf('laporan'); });
     var tCsv = I.el('button', { type: 'button', class: 'btn btn-sm btn-outline-irbi', title: 'CSV berisi skor & kelas semua indeks untuk wilayah sesuai filter' }, '<i class="bi bi-filetype-csv"></i> CSV');
     tCsv.addEventListener('click', function () { self.unduhCsv(); });
-    aksi.appendChild(tPdf); aksi.appendChild(tCsv);
+    aksi.appendChild(tPdf); aksi.appendChild(tLap); aksi.appendChild(tCsv);
     if (this.mode === 'penuh') {
       var tLink = I.el('button', { type: 'button', class: 'btn btn-sm btn-outline-irbi', title: 'Salin tautan ke tampilan ini' }, '<i class="bi bi-link-45deg"></i> Tautan');
       tLink.addEventListener('click', function () {
@@ -632,6 +634,8 @@
   P.specPdf = function () {
     var s = this.s, j = I.jenis(s.indeks);
     var namaIdx = I.namaIndeks(s.indeks);
+    var ada = this.kelasAda(), kelasFilter = ada.every(function (k) { return s.kelas.indexOf(k) >= 0; }) ? null
+      : s.kelas.filter(function (k) { return ada.indexOf(k) >= 0; });
     var wil = this.tingkat === 'provinsi' ? 'Tingkat Provinsi' : (s.prov ? 'di ' + (/^(ACEH|DAERAH ISTIMEWA)/.test(I.D.idx.prov[s.prov].nama_buku) ? '' : 'Provinsi ') + this.namaProv() : 'Kabupaten/Kota Seluruh Indonesia');
     var judul = 'Peta Indeks Risiko Bencana ' + (this.tingkat === 'kabkota' && s.indeks !== 'irbi' ? namaIdx + ' ' : '') + wil;
     return {
@@ -639,13 +643,15 @@
       judul: judul, subjudul: 'Indeks Risiko Bencana Indonesia (IRBI) Tahun ' + I.D.tahun,
       filterTeks: this.teksFilter(true), baris: this.cocokRows, cakupan: this.cakupan, setCocok: this.setCocok,
       statistik: this.statistik(this.cocokRows), namaBerkas: this.namaBerkas('pdf'),
+      tautan: this.mode === 'penuh' && /^https?:/.test(location.protocol) ? location.href : '', kelasFilter: kelasFilter,
       pdfStandar: this.tingkat === 'provinsi' ? I.D.pdf.provinsi : (s.prov ? I.D.idx.prov[s.prov].pdf : I.D.pdf[s.indeks])
     };
   };
-  P.unduhPdf = function () {
+  /** mode: undefined (peta & tabel) atau 'laporan' (laporan lengkap seperti buku). */
+  P.unduhPdf = function (mode) {
     var spec = this.specPdf();
     if (!spec.baris.length) { I.toast('Tidak ada wilayah yang sesuai filter.', 'galat'); return; }
-    I.modul('pdf').then(function () { I.pdf.dialog(spec); }).catch(function (e) { I.toast('Modul PDF gagal dimuat: ' + I.esc(e.message), 'galat'); });
+    I.modul('pdf').then(function () { I.pdf.dialog(spec, mode); }).catch(function (e) { I.toast('Modul PDF gagal dimuat: ' + I.esc(e.message), 'galat'); });
   };
 
   I.Jelajah = Jelajah;

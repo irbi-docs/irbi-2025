@@ -15,6 +15,24 @@ provinsi/ancaman, atur filter, lalu klik **Unduh PDF sesuai filter**. PDF dibuat
 memuat peta berketerangan, ringkasan filter dan statistik, klasifikasi kelas, parameter, serta tabel data
 lengkap (multi-bahaya dan 11 ancaman) untuk wilayah yang tersaring. Perubahan data dari Studio ikut terbawa.
 
+## Laporan lengkap seperti buku
+
+Klik **Laporan** di samping tombol PDF untuk membuat laporan A4 yang disusun seperti buku IRBI dari filter yang
+sedang aktif. Isinya:
+
+- **Sampul, daftar isi, dan *bookmark* PDF.**
+- **Ringkasan** dengan narasi hasil yang dihitung dari data: sebaran kelas, rata-rata dibandingkan nasional,
+  wilayah tertinggi dan terendah, serta konteks nasional dari buku.
+- **Pendahuluan dan metodologi** dari buku, termasuk tabel bobot dan skor khusus untuk ancaman yang dipilih.
+- **Hasil:** peta, tabel sebaran kelas, grafik peringkat, dan rekapitulasi per provinsi.
+- **Profil wilayah:** gambaran setiap provinsi dari buku, analisis data, dan profil multi-ancaman. Bila hasil
+  filter berisi paling banyak 60 kabupaten/kota, setiap kabupaten/kota juga mendapat profil sendiri.
+- **Penutup dan lampiran:** tabel data lengkap 12 indeks, serta catatan dan sumber data.
+
+Teks penjelasan diambil dari sumber buku, sedangkan angka dan kalimat hasil selalu dihitung ulang dari data
+yang berlaku, termasuk perubahan dari Studio, yang ditandai \*. Untuk edisi berikutnya, cukup perbarui teks
+dan data sumbernya; laporan akan mengikutinya.
+
 ## Peta baku siap cetak (PDF)
 
 Peta baku tanpa filter, berukuran A4 lanskap, memuat judul, keterangan kelas risiko, panah utara, skala,

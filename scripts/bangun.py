@@ -237,7 +237,7 @@ class Data:
                 peringatan(f"Kab/kota {r['kabkota']}: kelas '{kelas}' tidak sesuai ambang untuk skor {skor}")
             rows.append({"kode": kode, "kabkota": r["kabkota"].upper(), "prov_kode": prov["kode"],
                          "provinsi": prov["provinsi"], "skor": skor, "kelas": kelas,
-                         "peringkat_buku": r.get("peringkat", "")})
+                         "peringkat_buku": r.get("peringkat", ""), "resmi": (r.get("nama_resmi") or "").strip()})
         rows.sort(key=lambda r: (-r["skor"], r["kabkota"]))
         for n, r in enumerate(rows, 1):
             r["peringkat"] = n
@@ -331,6 +331,122 @@ def bangun_data_js(d: Data):
         b64 = base64.b64encode(logo.read_bytes()).decode()
         tulis(ASET_DATA / "irbi-aset.js", "/* Aset gambar untuk PDF peramban. */\nwindow.IRBI_ASET = " +
               json.dumps({"logo": "data:image/png;base64," + b64}) + ";\n")
+
+
+# --------------------------------------------------------------------------- teks penjelasan (laporan PDF)
+def md_polos(s: str) -> str:
+    """Markdown sebaris → teks polos untuk laporan PDF di peramban."""
+    s = re.sub(r"\[([^\]]+)\]\{[^}]*\}", r"\1", s)            # [Rendah]{.kelas}
+    s = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", s)            # [teks](tautan)
+    s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
+    s = re.sub(r"(?<![\w*])\*(?=\S)(.+?)(?<=\S)\*(?![\w*])", r"\1", s)
+    s = re.sub(r"\s*\{[#.][^}]*\}", "", s)
+    s = re.sub(r"\s*@(?:fig|tbl)-[\w-]+", "", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def rumus_md(s: str) -> dict:
+    t = s.strip().strip("$").replace("\\ ", " ").strip()
+    m = re.match(r"(.+?)\\approx(.+?)\\times\s*\\frac\{(.+?)\}\{(.+?)\}\s*$", t, re.S)
+    if m:
+        return {"kiri": m[1].strip(), "kanan": m[2].strip(), "atas": m[3].strip(), "bawah": m[4].strip()}
+    return {"teks": " ".join(re.sub(r"\\[A-Za-z]+", " ", t).split())}
+
+
+def buang_div(teks: str) -> str:
+    """Buang blok ::: (catatan edisi digital, isi khusus HTML/Typst); kutipan buku dijadikan satu baris bertanda."""
+    out, tumpuk, kutip = [], [], []
+    for ln in teks.split("\n"):
+        m = re.match(r"^\s*(:{3,})\s*(.*?)\s*$", ln)
+        if m and m[2]:
+            tumpuk.append(m[2])
+            continue
+        if m and tumpuk:
+            if "irbi-kutipan" in tumpuk.pop() and kutip:
+                out += ["", "<<KUTIPAN>>" + " ".join(kutip), ""]
+                kutip = []
+            continue
+        if tumpuk:
+            if "irbi-kutipan" in tumpuk[-1] and ln.strip():
+                kutip.append(ln.strip())
+            continue
+        out.append(ln)
+    return "\n".join(out)
+
+
+def blok_md(teks: str) -> list[dict]:
+    """Potongan Markdown buku → blok sederhana (judul, paragraf, daftar, tabel, rumus, kutipan) untuk PDF."""
+    out: list[dict] = []
+    teks = re.sub(r"\$\$(.+?)\$\$", lambda m: "\n\n$$" + " ".join(m[1].split()) + "$$\n\n", buang_div(teks), flags=re.S)
+    teks = re.sub(r"^(#{2,4} .+)$", r"\n\1\n", teks, flags=re.M)
+    for b in re.split(r"\n\s*\n", teks.strip()):
+        s = b.strip()
+        if not s or s.startswith(("{{<", "![", "<!--", "```")):
+            continue
+        if s.startswith("$$"):
+            out.append({"rumus": rumus_md(s)})
+        elif s.startswith("<<KUTIPAN>>"):
+            out.append({"kutipan": md_polos(s[len("<<KUTIPAN>>"):])})
+        elif m := re.match(r"^(#{2,4})\s+(.+)$", s):
+            out.append({"judul": md_polos(m[2]), "tingkat": len(m[1])})
+        elif s.startswith("|"):
+            sel = [[c.strip() for c in x.strip().strip("|").split("|")] for x in s.split("\n") if x.strip().startswith("|")]
+            sel = [r for r in sel if not all(re.fullmatch(r":?-{2,}:?", c) for c in r)]
+            out.append({"tabel": {"kepala": [md_polos(c) for c in sel[0]], "baris": [[md_polos(c) for c in r] for r in sel[1:]]}})
+        elif s.startswith(": ") and out and "tabel" in out[-1]:
+            out[-1]["tabel"]["judul"] = md_polos(s[2:])
+        elif re.match(r"^(\d+[.)]|[-*+])\s+", s):
+            butir = re.split(r"\n(?=\s*(?:\d+[.)]|[-*+])\s+)", s)
+            out.append({"daftar": [md_polos(re.sub(r"^\s*(\d+[.)]|[-*+])\s+", "", x)) for x in butir],
+                        "nomor": bool(re.match(r"^\d", s))})
+        else:
+            out.append({"p": md_polos(s)})
+    return out
+
+
+def bangun_teks_js(d: Data):
+    """Teks penjelasan buku untuk 'Laporan lengkap' (PDF di peramban); dimuat hanya saat membuat laporan."""
+    def isi(qmd: str) -> str:
+        return re.sub(r"\A---\n.*?\n---\n", "", (ROOT / qmd).read_text(encoding="utf-8"), flags=re.S)
+
+    def bagian(teks: str, judul: str) -> str:
+        m = re.search(rf"^## {re.escape(judul)}\s*\n(.*?)(?=^## |\Z)", teks, re.S | re.M)
+        if not m:
+            peringatan(f"teks laporan: bagian '## {judul}' tidak ditemukan")
+        return m[1] if m else ""
+
+    def provinsi(kode: str) -> dict:
+        f = next(iter(sorted(ROOT.glob(f"provinsi/{kode}-*.qmd"))), None)
+        if not f:
+            return {"profil": [], "ancaman": ""}
+        t = isi(str(f.relative_to(ROOT)))
+        profil = []
+        for b in blok_md(bagian(t, "Profil Wilayah")):
+            if "p" in b:
+                # kalimat nilai IRBI di bab provinsi buku tidak selalu sesuai tabel (mis. Sulawesi Selatan);
+                # laporan menggantinya dengan kalimat yang dihitung dari data.
+                p = re.sub(r"\s*Pengukuran Indeks Risiko Bencana[^.]*?nilai\s+[\d.,]*\d\.?", "", b["p"]).strip()
+                if p:
+                    profil.append(p)
+        a = re.search(r"^## Ancaman Bencana\s*\n(.*?)^\s*:::", t, re.S | re.M)
+        return {"profil": profil, "ancaman": md_polos(a[1]).rstrip(".") if a else ""}
+
+    hasil = isi("hasil-provinsi.qmd")
+    mt = isi("_metodologi-tabel.qmd")
+    i = mt.find("## Metodologi Analisis Tingkat Risiko")
+    teks = {
+        "tahun": TAHUN,
+        "pendahuluan": blok_md(isi("pendahuluan.qmd")),
+        "metodologi": blok_md(isi("metodologi.qmd")),
+        "klasifikasi": blok_md(mt[i:]) if i >= 0 else [],
+        "nasional": blok_md(bagian(hasil, f"Perhitungan IRBI Tahun {TAHUN}")),
+        "pengkelasan": blok_md(bagian(hasil, "Pengkelasan Indeks Risiko")),
+        "ringkasan": blok_md(isi("ringkasan-eksekutif.qmd")),
+        "provinsi": {p["kode"]: provinsi(p["kode"]) for p in d.provinsi},
+        "nama_resmi": {r["kode"]: r["resmi"] for r in d.kabkota if r.get("resmi")},
+    }
+    tulis(ASET_DATA / "irbi-teks.js", "/* Teks penjelasan buku untuk laporan PDF. Dibuat otomatis oleh scripts/bangun.py. */\n"
+          "window.IRBI_TEKS = " + json.dumps(teks, ensure_ascii=False, separators=(",", ":")) + ";\n")
 
 
 # --------------------------------------------------------------------------- tabel
@@ -908,6 +1024,7 @@ def main():
     sinkron_warna_typst()
     d = Data()
     bangun_data_js(d)
+    bangun_teks_js(d)
     tulis_gen(d)
     pp = bangun_peta(d)
     versi_aset()

@@ -11,6 +11,10 @@ Konversi *BUKU IRBI 2025.pdf* menjadi buku digital dengan [Quarto](https://quart
 - **PDF sesuai filter:** dibuat langsung di peramban (jsPDF + svg2pdf.js + jspdf-autotable). Isinya peta
   vektor berketerangan (legenda, skala, arah utara, inset lokasi), ringkasan filter dan statistik,
   klasifikasi kelas, parameter, serta tabel data lengkap (skor dan kelas semua indeks).
+- **Laporan lengkap seperti buku** (`assets/js/irbi-laporan.js`): PDF A4 sesuai filter, berisi sampul, daftar
+  isi, ringkasan dengan narasi yang dihitung dari data, pendahuluan dan metodologi buku, peta, grafik, profil
+  provinsi dan kabupaten/kota, penutup, serta lampiran. Teks buku diekstrak oleh `scripts/bangun.py` ke
+  `assets/data/irbi-teks.js`, jadi laporan otomatis mengikuti teks dan data edisi yang sedang dibangun.
 - **Studio** (`studio.qmd` + panel di setiap halaman): ubah **data**, **tampilan**, dan **teks** langsung di
   aplikasi, tanpa mengedit kode dan tanpa server. Perubahan bisa diekspor/impor sebagai paket JSON atau
   diterbitkan untuk semua pembaca lewat `assets/kustom/irbi-kustom.js`.
