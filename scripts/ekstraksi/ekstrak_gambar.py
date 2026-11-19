@@ -29,6 +29,14 @@ GAMBAR = [
     (210, 0, "foto-ancaman.jpg", 1600, False),
 ]
 
+# pdfimages mengambil data gambar mentah tanpa matriks penempatan (CTM) PDF, jadi gambar yang di PDF
+# ditampilkan diputar/dibalik akan keluar dengan orientasi salah. Bandingkan hasil ekstraksi dengan
+# halaman buku (mis. `pdftoppm -f N -l N -r 40 -png`) dan catat koreksinya di sini, dalam derajat
+# berlawanan arah jarum jam seperti Image.rotate.
+PUTAR = {
+    "foto-pendahuluan.jpg": 180,  # hal. 14: foto ditempatkan terbalik di PDF
+}
+
 
 def ambil(pdf, page, tmp):
     out = Path(tmp) / f"p{page}"
@@ -41,6 +49,8 @@ def simpan(files, idx, mask, dst, maxpx):
     nxt = Image.open(files[idx + 1]) if mask and idx + 1 < len(files) else None
     if nxt is not None and nxt.mode in ("L", "1") and nxt.size == im.size:
         im.putalpha(nxt.convert("L"))  # soft-mask (transparansi)
+    if PUTAR.get(dst.name):
+        im = im.rotate(PUTAR[dst.name], expand=True)
     im.thumbnail((maxpx, maxpx), Image.LANCZOS)
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.suffix == ".jpg":
