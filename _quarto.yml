@@ -156,7 +156,8 @@ format:
     lightbox: true
     html-math-method: katex
     grid:
-      sidebar-width: 262px
+      # Bilah kiri "docked" memakai 1,5em + 80% nilai ini (330px → ±287px di layar lebar)
+      sidebar-width: 330px
       body-width: 865px
       margin-width: 220px
   typst:

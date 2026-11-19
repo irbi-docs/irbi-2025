@@ -214,7 +214,8 @@ kbd { background: var(--irbi-permukaan); color: var(--irbi-teks-3); border: 1px 
 // =================================================================== bilah sisi kiri: isi buku berkelompok
 #quarto-sidebar.sidebar-navigation {
   background-color: var(--irbi-permukaan) !important; border-right: 1px solid var(--irbi-garis) !important;
-  padding: 1.55rem 1.3rem 1.5rem;
+  padding: 1.55rem 1rem 1.5rem 1.15rem;
+  scrollbar-width: thin; scrollbar-color: var(--irbi-garis) transparent;   // bilah gulir tipis agar tidak memakan lebar
 }
 .irbi-nav { padding: 0; }
 .irbi-nav-kepala { font-size: .625rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--irbi-teks-3); padding: 0 .625rem; margin: 0 0 .875rem; }
