@@ -354,6 +354,9 @@
 
   // ================================================================== tampilan
   var FONT = {
+    'Instrument Sans': 'Instrument+Sans:wght@400..700',
+    'Georgia': '',
+    'Source Serif 4': 'Source+Serif+4:ital,wght@0,400;0,600;1,400',
     'Plus Jakarta Sans': 'Plus+Jakarta+Sans:wght@500;600;700;800',
     'Source Sans 3': 'Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400',
     'Inter': 'Inter:wght@400;500;600;700;800',
@@ -378,9 +381,25 @@
   }
   function terang(hex) { var c = hexKeRgb(hex); if (!c) return false; return (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) > 160; }
   I.warnaUtil = { campur: campur, hexKeRgb: hexKeRgb, terang: terang };
+  var SERIF = { 'Georgia': 1, 'Source Serif 4': 1, 'Merriweather': 1, 'Lora': 1 };
   function tumpukanFont(f, cadangan) {
     if (!f || f === 'Sistem') return 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
-    return '"' + f + '", ' + cadangan;
+    return '"' + f + '", ' + (SERIF[f] ? 'Georgia, "Source Serif 4", serif' : cadangan);
+  }
+  /** hex → [h (0-360), s (0-1), l (0-1)] dan sebaliknya, untuk menurunkan warna turunan dari warna utama. */
+  function hexKeHsl(hex) {
+    var c = hexKeRgb(hex); if (!c) return null;
+    var r = c[0] / 255, g = c[1] / 255, b = c[2] / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, h = 0, s = 0;
+    if (mx !== mn) {
+      var d = mx - mn; s = l > 0.5 ? d / (2 - mx - mn) : d / (mx + mn);
+      h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h *= 60;
+    }
+    return [h, s, l];
+  }
+  function hsl(h, s, l) {
+    s = Math.max(0, Math.min(1, s)); l = Math.max(0, Math.min(1, l));
+    var f = function (n) { var k = (n + h / 30) % 12, a = s * Math.min(l, 1 - l); return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)))).toString(16).padStart(2, '0'); };
+    return '#' + f(0) + f(8) + f(4);
   }
   I.tampilan = {
     efektif: function () { return S.efektif().tampilan; },
@@ -391,13 +410,21 @@
     },
     css: function (t) {
       var r = [], g = [];
-      if (t.primer) {
-        r.push('--irbi-primer:' + t.primer, '--irbi-primer-2:' + campur(t.primer, '#ffffff', 0.18),
-          '--irbi-tautan:' + campur(t.primer, '#1F6F86', 0.35), '--irbi-judul:' + t.primer,
-          '--irbi-primer-lembut:' + campur(t.primer, '#ffffff', 0.9));
-        g.push('--irbi-primer:' + campur(t.primer, '#000000', 0.15), '--irbi-primer-2:' + t.primer,
-          '--irbi-tautan:' + campur(t.primer, '#ffffff', 0.55), '--irbi-judul:' + campur(t.primer, '#ffffff', 0.78),
-          '--irbi-primer-lembut:' + campur(t.primer, '#000000', 0.55));
+      var w = t.primer && hexKeHsl(t.primer);
+      if (w) {   // warna turunan (aktif, tautan, judul, blok judul bab) dari rona warna utama
+        var h = w[0], s = Math.max(w[1], 0.35);
+        r.push('--irbi-primer:' + t.primer, '--irbi-primer-2:' + hsl(h, Math.max(s, 0.55), 0.35),
+          '--irbi-primer-lembut:' + hsl(h, 0.4, 0.9), '--irbi-tautan:' + hsl(h, Math.max(s, 0.6), 0.25),
+          '--irbi-tautan-tua:' + hsl(h, Math.max(s, 0.6), 0.21), '--irbi-judul:' + hsl(h, s * 0.6, 0.11),
+          '--irbi-judul-bab:' + hsl(h, s * 0.7, 0.17), '--irbi-bingkai-bab:' + hsl(h, 0.65, 0.25),
+          '--irbi-judul-latar-1:' + hsl(h, 0.45, 0.94), '--irbi-judul-latar-2:' + hsl(h, 0.5, 0.89),
+          '--irbi-lambang-garis:' + hsl(h, 0.32, 0.61));
+        g.push('--irbi-primer:' + hsl(h, s * 0.8, 0.25), '--irbi-primer-2:' + hsl(h, 0.5, 0.48),
+          '--irbi-primer-lembut:' + hsl(h, 0.32, 0.17), '--irbi-tautan:' + hsl(h, 0.55, 0.64),
+          '--irbi-tautan-tua:' + hsl(h, 0.55, 0.76), '--irbi-judul:' + hsl(h, 0.3, 0.92),
+          '--irbi-judul-bab:' + hsl(h, 0.45, 0.88), '--irbi-bingkai-bab:' + hsl(h, 0.45, 0.43),
+          '--irbi-judul-latar-1:' + hsl(h, 0.35, 0.14), '--irbi-judul-latar-2:' + hsl(h, 0.4, 0.13),
+          '--irbi-lambang-garis:' + hsl(h, 0.3, 0.5));
       }
       if (t.aksen) {
         r.push('--irbi-aksen:' + t.aksen, '--irbi-aksen-2:' + campur(t.aksen, '#ffffff', 0.45));
@@ -408,7 +435,7 @@
       if (k.SEDANG) r.push('--irbi-sedang:' + k.SEDANG, '--irbi-sedang-teks:' + (terang(k.SEDANG) ? '#2B2B00' : '#ffffff'));
       if (k.RENDAH) r.push('--irbi-rendah:' + k.RENDAH, '--irbi-rendah-teks:' + (terang(k.RENDAH) ? '#102010' : '#ffffff'));
       if (t.fontJudul) r.push('--irbi-font-judul:' + tumpukanFont(t.fontJudul, 'system-ui, sans-serif'));
-      if (t.fontIsi) r.push('--irbi-font-isi:' + tumpukanFont(t.fontIsi, 'system-ui, sans-serif'));
+      if (t.fontIsi) r.push('--irbi-font-baca:' + tumpukanFont(t.fontIsi, 'system-ui, sans-serif'));
       if (t.ukuran) r.push('--irbi-ukuran:' + (+t.ukuran) + 'px');
       if (t.radius !== undefined && t.radius !== null && t.radius !== '') r.push('--irbi-radius:' + (+t.radius) + 'px', '--irbi-radius-kecil:' + Math.round(+t.radius * 0.55) + 'px');
       var css = '';
@@ -426,6 +453,7 @@
       var html = document.documentElement;
       html.setAttribute('data-irbi-kepadatan', t.kepadatan || 'lega');
       html.setAttribute('data-irbi-animasi', t.animasi === false ? 'mati' : 'nyala');
+      html.setAttribute('data-irbi-kolom', t.kolom === 'satu' ? 'satu' : 'buku');
       [t.fontJudul, t.fontIsi].forEach(function (f) {
         if (f && FONT[f] && !document.querySelector('link[data-irbi-font="' + f + '"]')) {
           document.head.appendChild(I.el('link', { rel: 'stylesheet', 'data-irbi-font': f,
@@ -474,7 +502,8 @@
   var normTeks = function (s) { return String(s || '').replace(/\s+/g, ' ').trim(); };
   var KECUALI = '.irbi-jelajah,.irbi-peta,.irbi-tabel-wrap,.irbi-kartu-grid,.irbi-studio-data,.irbi-prov-grid,' +
     '.irbi-ancaman-grid,.irbi-grafik,.irbi-pintasan,.quarto-title-meta,nav,pre,code,.katex,.math,svg,script,style,' +
-    '.irbi-studio,.irbi-toast-wadah,.callout-header,#quarto-margin-sidebar,.sidebar,#title-block-header .quarto-categories';
+    '.irbi-studio,.irbi-toast-wadah,.callout-header,#quarto-margin-sidebar,.sidebar,#title-block-header .quarto-categories,' +
+    '.irbi-judul-ekstra,.irbi-di,.irbi-kredit,.irbi-sampul-label';
   I.teks = {
     sasaran: function () {
       var main = document.querySelector('main#quarto-document-content') || document.querySelector('main');
@@ -627,8 +656,16 @@
     var t = h ? Math.round(h.getBoundingClientRect().height) : 0;
     document.documentElement.style.setProperty('--irbi-tinggi-navbar', (t || 0) + 'px');
   }
+  function tampakkanBabAktif() {
+    var nav = document.getElementById('quarto-sidebar');
+    var a = nav && nav.querySelector('.irbi-nav-link.active');
+    if (!a || nav.scrollHeight <= nav.clientHeight) return;
+    var atas = a.getBoundingClientRect().top - nav.getBoundingClientRect().top + nav.scrollTop;
+    if (atas > nav.clientHeight * 0.7) nav.scrollTop = atas - nav.clientHeight / 2;
+  }
   function pasang() {
     I.tampilan.terapkan();
+    tampakkanBabAktif();
     pantauTema();
     ukurNavbar();
     window.addEventListener('resize', I.tunda(ukurNavbar, 150));
@@ -649,7 +686,7 @@
         document.querySelectorAll('.irbi-grafik').forEach(function (el) { I.grafik.pasang(el); });
       }).catch(function (e) { document.querySelectorAll('.irbi-grafik').forEach(function (el) { galat(el, e); }); });
     }
-    if (ada('[data-kartu], .irbi-prov-grid, .irbi-ancaman-grid, table.irbi-tabel:not([data-diadopsi])')) {
+    if (ada('[data-kartu], [data-hero], .irbi-prov-grid, .irbi-ancaman-grid, table.irbi-tabel:not([data-diadopsi])')) {
       Promise.all([I.muatData(), I.modul('statis')]).then(function () { I.statis.pasang(); })
         .catch(function (e) { if (window.console) console.error(e); });
     }

@@ -3,6 +3,8 @@ project:
   output-dir: _book
   # Membuat tabel, ringkasan, data peta interaktif, peta SVG & PDF dari folder data/
   pre-render: python3 scripts/bangun.py
+  # Menata navigasi HTML seperti buku: bilah sisi berkelompok, Daftar Isi, tombol sebelum/berikut (PDF tidak tersentuh)
+  post-render: python3 scripts/pasca_render.py
   resources:
     - "data/*.csv"
     - "data/geo/*.geojson"
@@ -14,6 +16,7 @@ project:
     - "assets/img/lambang/*.png"
     - "assets/img/logo-bnpb.png"
     - "assets/img/sampul.jpg"
+    - "assets/img/sampul-buku.jpg"
     - "assets/vendor/jspdf/*"
     - "assets/kustom/*.js"
 
@@ -29,37 +32,36 @@ book:
   cover-image: assets/img/sampul.jpg
   cover-image-alt: "Sampul buku IRBI 2025: foto udara aliran sungai pascabencana"
   favicon: assets/img/logo-bnpb.png
-  downloads: [pdf]
-  search: true
+  search:
+    location: navbar
+    type: textbox
   page-navigation: true
   reader-mode: true
   back-to-top-navigation: true
+  # Bilah atas bergaya buku digital: lambang IR/BI + judul (CSS), lalu tautan aksi, kotak cari, mode baca & gelap.
+  # Isi buku dikelompokkan di bilah sisi kiri oleh scripts/pasca_render.py.
   navbar:
     title: "IRBI 2025"
-    left:
-      - text: Beranda
-        href: index.qmd
+    right:
       - text: Jelajah Data
         href: jelajah.qmd
-      - text: Provinsi
-        href: provinsi/index.qmd
-      - text: Ancaman
-        href: ancaman/index.qmd
-      - text: Unduhan
-        href: unduhan.qmd
-    right:
-      - icon: palette2
-        text: Studio
+      - text: Studio
         href: studio.qmd
         aria-label: Studio — ubah data, tampilan, dan teks
+      - text: Buku PDF
+        href: IRBI-2025.pdf
+        aria-label: Unduh buku lengkap (PDF)
+      - text: InaRISK
+        href: https://inarisk.bnpb.go.id/v4/irbi
   sidebar:
     style: docked
     collapse-level: 1
   page-footer:
-    left: "IRBI 2025 · Badan Nasional Penanggulangan Bencana"
-    right: "Dibuat dengan [Quarto](https://quarto.org)"
+    left: "**Buku Digital IRBI 2025** · Edisi digital interaktif dari buku terbitan Badan Nasional Penanggulangan Bencana"
+    right: "[InaRISK](https://inarisk.bnpb.go.id/v4/irbi) · Dibuat dengan [Quarto](https://quarto.org)"
   chapters:
     - index.qmd
+    - tim-redaksi.qmd
     - jelajah.qmd
     - ringkasan-eksekutif.qmd
     - sambutan.qmd
@@ -129,6 +131,11 @@ book:
     - panduan-edit.qmd
 
 number-sections: false
+# Edisi HTML: paragraf berurutan ditata berkolom seperti halaman buku (PDF tidak terpengaruh)
+filters:
+  - assets/lua/kolom-teks.lua
+language:
+  search-text-placeholder: "Cari isi buku"
 crossref:
   fig-prefix: Gambar
   tbl-prefix: Tabel
@@ -141,7 +148,7 @@ format:
     respect-user-color-scheme: true
     include-in-header: assets/html/kepala.html
     toc: true
-    toc-title: "Di halaman ini"
+    toc-title: "Pada halaman ini"
     toc-depth: 2
     smooth-scroll: true
     link-external-newwindow: true
@@ -149,9 +156,9 @@ format:
     lightbox: true
     html-math-method: katex
     grid:
-      sidebar-width: 290px
-      body-width: 860px
-      margin-width: 230px
+      sidebar-width: 262px
+      body-width: 865px
+      margin-width: 220px
   typst:
     papersize: a4
     fontsize: 10pt

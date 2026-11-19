@@ -1,6 +1,6 @@
 """Ekstraksi gambar dari BUKU IRBI 2025.pdf (sekali pakai).
 
-Memakai `pdfimages` (poppler) untuk mengambil gambar asli, lalu Pillow untuk
+Memakai `pdfimages` (poppler) untuk mengambil gambar asli (dan `pdftoppm` untuk halaman utuh), lalu Pillow untuk
 menggabungkan soft-mask (transparansi) dan memperkecil ukuran agar ringan di web.
 
 Pemakaian:
@@ -37,6 +37,12 @@ PUTAR = {
     "foto-pendahuluan.jpg": 180,  # hal. 14: foto ditempatkan terbalik di PDF
 }
 
+# Halaman utuh yang dirender sebagai gambar (bukan gambar sisipan): (halaman, nama berkas, ukuran maks px).
+# Sampul asli ditampilkan apa adanya di halaman Sampul edisi web.
+HALAMAN_UTUH = [
+    (1, "sampul-buku.jpg", 1100),
+]
+
 
 def ambil(pdf, page, tmp):
     out = Path(tmp) / f"p{page}"
@@ -60,6 +66,18 @@ def simpan(files, idx, mask, dst, maxpx):
     print(f"{dst} {im.size}")
 
 
+def render_halaman(pdf, page, dst, maxpx, tmp):
+    """Render satu halaman PDF utuh (teks + gambar) dengan pdftoppm, lalu simpan sebagai JPEG ringan."""
+    awal = Path(tmp) / f"utuh{page}"
+    subprocess.run(["pdftoppm", "-f", str(page), "-l", str(page), "-scale-to", str(maxpx + 100), "-png",
+                    pdf, str(awal)], check=True)
+    im = Image.open(next(Path(tmp).glob(f"utuh{page}*.png"))).convert("RGB")
+    im.thumbnail((maxpx, maxpx), Image.LANCZOS)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    im.save(dst, "JPEG", quality=84, optimize=True, progressive=True)
+    print(f"{dst} {im.size}")
+
+
 def main(pdf, outdir, provinsi_csv="data/irbi_provinsi.csv"):
     out = Path(outdir)
     with tempfile.TemporaryDirectory() as tmp:
@@ -67,6 +85,9 @@ def main(pdf, outdir, provinsi_csv="data/irbi_provinsi.csv"):
             if (out / name).exists():
                 continue
             simpan(ambil(pdf, page, tmp), idx, mask, out / name, maxpx)
+        for page, name, maxpx in HALAMAN_UTUH:
+            if not (out / name).exists():
+                render_halaman(pdf, page, out / name, maxpx, tmp)
         # Lambang provinsi: gambar pertama di halaman pembuka tiap bab provinsi (58, 62, ..., 206)
         prov = list(csv.DictReader(open(provinsi_csv, encoding="utf-8")))
         for i, r in enumerate(prov):

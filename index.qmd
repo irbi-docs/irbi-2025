@@ -4,16 +4,17 @@ title: "Tentang Buku Ini"
 
 ::: {.content-visible when-format="html"}
 ```{=html}
-<section class="irbi-hero">
-  <img class="irbi-hero-latar" src="assets/img/sampul.jpg" alt="">
-  <div class="irbi-hero-teks">
-    <p class="irbi-hero-label">Volume 04 · Nomor 04 · Januari 2026 · ISSN 2985-6922</p>
-    <div class="irbi-hero-judul" role="heading" aria-level="2">Indeks Risiko Bencana Indonesia <span>Tahun 2025</span></div>
-    <p>Edisi digital interaktif buku IRBI 2025 terbitan Badan Nasional Penanggulangan Bencana. Jelajahi risiko 514
-    kabupaten/kota dan 38 provinsi untuk 11 jenis ancaman, saring sesuai kebutuhan, lalu unduh peta dan datanya.</p>
-    <div class="irbi-hero-aksi">
-      <a class="btn btn-irbi" href="jelajah.html"><i class="bi bi-map"></i> Jelajah Data</a>
-      <a class="btn btn-outline-irbi" href="provinsi/index.html"><i class="bi bi-geo-alt"></i> Per provinsi</a>
+<section class="irbi-sampul" aria-label="Sampul buku">
+  <figure class="irbi-sampul-gambar"><img src="assets/img/sampul-buku.jpg" width="1100" height="1100" alt="Sampul buku Indeks Risiko Bencana Indonesia (IRBI) Tahun 2025 terbitan BNPB"></figure>
+  <div class="irbi-sampul-teks">
+    <p class="irbi-sampul-label">Volume 04 · Nomor 04 · Januari 2026 · ISSN 2985-6922</p>
+    <div class="irbi-sampul-judul" role="heading" aria-level="1">Indeks Risiko Bencana Indonesia <span>Tahun 2025</span></div>
+    <p class="irbi-sampul-isi">Edisi digital interaktif buku IRBI 2025 terbitan Badan Nasional Penanggulangan Bencana. Baca bab demi bab
+    seperti buku cetak, jelajahi risiko 514 kabupaten/kota dan 38 provinsi untuk 11 jenis ancaman, lalu unduh peta,
+    data, atau laporan sesuai filter.</p>
+    <div class="irbi-sampul-aksi">
+      <a class="btn btn-irbi" href="daftar-isi.html"><i class="bi bi-journal-text"></i> Daftar isi</a>
+      <a class="btn btn-outline-irbi" href="jelajah.html"><i class="bi bi-map"></i> Jelajah Data</a>
       <a class="btn btn-outline-irbi" href="IRBI-2025.pdf" download><i class="bi bi-file-earmark-pdf"></i> Buku PDF</a>
     </div>
   </div>
@@ -27,6 +28,10 @@ title: "Tentang Buku Ini"
   <a href="studio.html"><i class="bi bi-palette2"></i><b>Studio</b><span>Ubah data, tampilan, dan teks langsung di aplikasi.</span></a>
 </nav>
 ```
+:::
+
+::: {.content-visible when-format="html"}
+## Tentang buku ini {#tentang-buku}
 :::
 
 Buku **Indeks Risiko Bencana Indonesia (IRBI) Tahun 2025** menyajikan Indeks Risiko Bencana pada tingkat
@@ -48,54 +53,21 @@ longsor, kekeringan, likuefaksi, dan cuaca ekstrem.
 
 ## Cara menggunakan edisi digital
 
+- **Membaca seperti buku.** Bilah kiri memuat isi buku per bagian, sedangkan [Daftar Isi](daftar-isi.html)
+  mengikuti buku cetak lengkap dengan nomor halamannya. Tombol *Sebelumnya* dan *Berikutnya* di akhir halaman
+  membawa Anda ke bab berikutnya. Gunakan kotak *Cari isi buku* (tekan <kbd>/</kbd>) untuk mencari istilah,
+  provinsi, atau ancaman.
 - **Jelajah Data.** Saring menurut jenis indeks, provinsi, kelas, rentang skor, atau nama wilayah. Peta,
   tabel, kartu ringkasan, dan grafik berubah bersamaan, dan tautan halaman menyimpan filter Anda sehingga bisa
   dibagikan.
 - **PDF sesuai filter.** Tombol *Unduh PDF sesuai filter* membuat PDF di peramban: peta berketerangan
   (legenda, skala, arah utara), ringkasan statistik, klasifikasi kelas, parameter, dan tabel data lengkap
-  untuk semua indeks.
+  untuk semua indeks. Tombol *Laporan* menyusun laporan lengkap seperti buku dari filter yang sama.
 - **Studio.** Tombol *Studio* di pojok kanan bawah membuka panel untuk mengubah warna, huruf, ukuran teks,
   mode gelap, teks halaman, dan data, tanpa mengubah kode atau memerlukan server. Perubahan bisa diekspor,
   dibagikan, atau diterbitkan untuk semua pembaca.
 - **Mode baca & gelap.** Gunakan ikon di bilah atas untuk mode baca (menyembunyikan navigasi) dan mode gelap.
 :::
-
-## Tim Redaksi
-
-Pengarah
-: Raditya Jati — Deputi Bidang Sistem dan Strategi BNPB
-
-Penanggung Jawab
-: Udrekh — Direktur Pemetaan dan Evaluasi Risiko Bencana BNPB
-
-Editor
-: Ridwan Yunus; Hafiz Fatah N.A.
-
-Desain dan Tata Letak
-: Atikah Nurina Sari; Putri Wibawanti
-
-Atribusi Foto
-: Dokumentasi Pusdatinkomben, BNPB
-
-Penulis
-: Edy S. Purba; Dyah Rusmiasih; Trevi Jayanti P.; Afif Alfian; Hannura Ayu S.; Sesa Wiguna;
-  Asfirmanto W. Adi; Dian Ika Purnamasiwi; Ahmad Rizqi; Franta Eveline; Rafa Karimah; Anggara S. Putra;
-  Yusuf Bagaskoro; Afifa Nomita Dewi; Brian M. A. Situngkir; Fajri Ramadhan; Intan Arianti;
-  M. Bintang W. Nugraha; M. Firman Hafizh; Natasya Safetyani; Alicya Grace Berutu; Hafiz Fatah N.A.;
-  Aulia Ishmata; Abdul Hafizh; Rahmawati; Atikah Nurina Sari; Devy Cynthia Selina; Harly M. Siambaton;
-  Helin Avinnata; Nanda Aviori Nazar; Rias Sukmawati; Viola Debby Yulistya; Prihatin Ningsih;
-  Putri Wibawanti; Angguna Noviana
-
-Kontributor
-: Intan Prawesti; Lir Ayyu Azzaqia Selasih; Aqiela Pradani Ulin Nuha
-
-## Penerbit
-
-Diterbitkan oleh **Badan Nasional Penanggulangan Bencana**. Volume 04, Nomor 04, Januari 2026.
-ISSN 2985-6922.
-
-Hak cipta dilindungi undang-undang. Dilarang mengutip atau memperbanyak sebagian atau seluruh isi buku tanpa
-izin tertulis penerbit.
 
 ::: {.callout-note appearance="simple"}
 ## Tentang edisi digital

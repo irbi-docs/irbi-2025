@@ -1,37 +1,53 @@
 /*-- scss:defaults --*/
-$body-bg: #0C171C;
-$body-color: #E2EBEE;
-$sidebar-bg: #102127;
-$navbar-bg: #0A2E37;
+$body-bg: #0D1714;
+$body-color: #E1ECE6;
+$sidebar-bg: #121F1B;
+$sidebar-fg: #A9BEB4;
+$navbar-bg: #121F1B;
+$navbar-fg: #E1ECE6;
+$link-color: #6FD1AB;
 
 /*-- scss:rules --*/
 // Variabel desain untuk mode gelap (berkas ini hanya aktif saat mode gelap dipilih).
 :root {
-  --irbi-primer: #0F4A59;
-  --irbi-primer-2: #1B6A7E;
-  --irbi-primer-lembut: #12303A;
-  --irbi-aksen: #C9A86E;
-  --irbi-aksen-2: #E7C98F;
-  --irbi-tautan: #5EC1D6;
-  --irbi-judul: #EAF3F5;
-  --irbi-latar: #0C171C;
-  --irbi-permukaan: #12232A;
-  --irbi-permukaan-2: #172C34;
-  --irbi-teks: #E2EBEE;
-  --irbi-teks-2: #9FB4BC;
-  --irbi-garis: #27424C;
-  --irbi-tanpa: #4A5A60;
-  --irbi-bayangan: 0 1px 2px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .3);
+  --irbi-primer: #1D5543;
+  --irbi-primer-2: #3FAE8A;
+  --irbi-primer-lembut: #1B3A30;
+  --irbi-aksen: #D9944F;
+  --irbi-aksen-2: #E8B27A;
+  --irbi-tautan: #6FD1AB;
+  --irbi-tautan-tua: #9FE3C6;
+  --irbi-judul: #E6F2EC;
+  --irbi-judul-bab: #D6F0E7;
+  --irbi-bingkai-bab: #3B9C87;
+  --irbi-judul-latar-1: #16302A;
+  --irbi-judul-latar-2: #12332F;
+  --irbi-lambang-garis: #5FA88A;
+  --irbi-latar: #0D1714;
+  --irbi-permukaan: #121F1B;
+  --irbi-kertas: #14231F;
+  --irbi-permukaan-2: #1A2B26;
+  --irbi-teks: #E1ECE6;
+  --irbi-teks-isi: #CFDDD6;
+  --irbi-teks-2: #A9BEB4;
+  --irbi-teks-3: #8BA197;
+  --irbi-garis: #24372F;
+  --irbi-garis-kertas: #2A3F37;
+  --irbi-garis-judul: #3E5A4E;
+  --irbi-tanpa: #4A5A55;
+  --irbi-bayangan: 0 1px 2px rgba(0, 0, 0, .35);
   --irbi-bayangan-angkat: 0 14px 34px rgba(0, 0, 0, .45);
-  --irbi-kaca: rgba(18, 35, 42, .86);
+  --irbi-bayangan-kertas: 0 18px 44px rgba(0, 0, 0, .3);
+  --irbi-kaca: rgba(18, 31, 27, .88);
 }
-.irbi-legenda .kotak-tanpa { background: repeating-linear-gradient(45deg, #4A5A60, #4A5A60 3px, #22343A 3px, #22343A 5px); }
+.irbi-legenda .kotak-tanpa { background: repeating-linear-gradient(45deg, #4A5A55, #4A5A55 3px, #1F2E29 3px, #1F2E29 5px); }
 .irbi-label-peta span { color: #F2F7F8; text-shadow: 0 0 2px #000, 0 0 3px #000, 0 0 4px #000; }
-.leaflet-container { background: #10252C; }
-.irbi-jl-peta { background: #10252C; }
+.leaflet-container { background: #10241F; }
+.irbi-jl-peta { background: #10241F; }
 .irbi-galat { background: #3B1414; color: #FECACA; }
-.irbi-toast { background: #1E3A43; }
-.leaflet-bar a, .leaflet-control-layers { background: #172C34; color: #E2EBEE; border-color: #27424C; }
-.leaflet-control-layers-expanded { color: #E2EBEE; }
-.leaflet-control-attribution { background: rgba(18, 35, 42, .8) !important; color: #9FB4BC; a { color: #5EC1D6; } }
-.leaflet-control-scale-line { background: rgba(18, 35, 42, .8); color: #E2EBEE; border-color: #9FB4BC; }
+.irbi-toast { background: #1E3A33; }
+.irbi-sampul-gambar img { box-shadow: 0 24px 50px rgba(0, 0, 0, .5); }
+.leaflet-bar a, .leaflet-control-layers { background: #1A2B26; color: #E1ECE6; border-color: #24372F; }
+.leaflet-control-layers-expanded { color: #E1ECE6; }
+.leaflet-control-attribution { background: rgba(18, 31, 27, .8) !important; color: #A9BEB4; a { color: #6FD1AB; } }
+.leaflet-control-scale-line { background: rgba(18, 31, 27, .8); color: #E1ECE6; border-color: #A9BEB4; }

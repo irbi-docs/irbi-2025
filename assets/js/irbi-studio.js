@@ -8,10 +8,11 @@
   if (I.studio) return;
   var S = I.kustom;
 
-  var BAWAAN = { primer: '#0B3C49', aksen: '#A68B5B', kelas: { TINGGI: '#E5242A', SEDANG: '#FFE433', RENDAH: '#2EAD4B' },
-    fontJudul: 'Plus Jakarta Sans', fontIsi: 'Source Sans 3', ukuran: 17, radius: 12, kepadatan: 'lega',
+  var BAWAAN = { primer: '#153B30', aksen: '#C47A36', kelas: { TINGGI: '#E5242A', SEDANG: '#FFE433', RENDAH: '#2EAD4B' },
+    fontJudul: 'Instrument Sans', fontIsi: 'Georgia', ukuran: 16, radius: 12, kepadatan: 'lega', kolom: 'buku',
     peta: { dasar: 'otomatis', opasitas: 0.82, label: true, batas: true }, animasi: true };
   var TEMA = [
+    { id: 'buku', nama: 'Buku', primer: '#153B30', aksen: '#C47A36' },
     { id: 'bnpb', nama: 'BNPB', primer: '#0B3C49', aksen: '#A68B5B' },
     { id: 'samudra', nama: 'Samudra', primer: '#0B4F8A', aksen: '#1FA2C7' },
     { id: 'hutan', nama: 'Hutan', primer: '#1E4D3A', aksen: '#B08D57' },
@@ -251,7 +252,7 @@
         '<span class="cth" style="background:linear-gradient(135deg,' + t.primer + ' 0 60%,' + t.aksen + ' 60% 100%)"></span>' + t.nama);
       k.addEventListener('click', function () {
         S.ubah('tampilan', function (l) {
-          if (t.id === 'bnpb') { delete l.tampilan.primer; delete l.tampilan.aksen; } else { l.tampilan.primer = t.primer; l.tampilan.aksen = t.aksen; }
+          if (t.id === 'buku') { delete l.tampilan.primer; delete l.tampilan.aksen; } else { l.tampilan.primer = t.primer; l.tampilan.aksen = t.aksen; }
         });
         tampilTab('tampilan', true);
       });
@@ -293,7 +294,11 @@
     };
     var w3 = I.el('div', { class: 'irbi-st-kolom' });
     w3.appendChild(selFont('Huruf judul', 'fontJudul'));
-    w3.appendChild(selFont('Huruf isi', 'fontIsi'));
+    w3.appendChild(selFont('Huruf isi (paragraf)', 'fontIsi'));
+    var tk = I.el('div', { class: 'irbi-st-pilih' });
+    tk.appendChild(I.el('span', { text: 'Tata letak teks' }));
+    tk.appendChild(segmen([['buku', 'Kolom buku'], ['satu', 'Satu kolom']], nilaiT('kolom'), function (v) { aturT('kolom', v); tampilTab('tampilan', true); }));
+    w3.appendChild(tk);
     w3.appendChild(geser('Ukuran teks', 14, 21, 1, nilaiT('ukuran'), 'px', function (v) { aturT('ukuran', v); }));
     w3.appendChild(geser('Sudut membulat', 0, 22, 1, nilaiT('radius'), 'px', function (v) { aturT('radius', v); }));
     var kp = I.el('div', { class: 'irbi-st-pilih' });

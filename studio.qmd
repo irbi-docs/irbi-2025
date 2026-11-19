@@ -1,6 +1,7 @@
 ---
 title: "Studio"
 subtitle: "Ubah data, tampilan, dan teks langsung di aplikasi, tanpa mengedit kode dan tanpa server"
+irbi-kolom: false  # teks petunjuk: satu kolom (lihat assets/lua/kolom-teks.lua)
 ---
 
 ::: {.content-visible when-format="html"}

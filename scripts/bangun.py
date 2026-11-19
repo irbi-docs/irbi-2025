@@ -515,6 +515,21 @@ def kartu(items: list[tuple[str, str, str, str]], spec: str = "") -> str:
     return f"```{{=html}}\n{''.join(h)}\n```\n\n```{{=typst}}\n{t}\n```\n"
 
 
+def judul_ekstra_prov(r: dict, jumlah: int) -> str:
+    """Lambang, jumlah kab/kota, serta nilai & kelas provinsi untuk blok judul halaman provinsi (HTML).
+
+    Nilai diperbarui di peramban dari data efektif (editan Studio) oleh assets/js/irbi-statis.js.
+    Komentar penutup menandai akhir blok untuk scripts/pasca_render.py."""
+    kelas = r["kelas"]
+    return (f'<div class="irbi-judul-ekstra" data-hero="prov:{r["kode"]}">'
+            f'<img class="irbi-judul-lambang" src="../assets/img/lambang/{r["kode"]}.png" alt="Lambang {esc(r["nama"])}">'
+            f'<p class="irbi-judul-sub"><b data-hero-isi="jumlah">{jumlah}</b> kabupaten/kota</p>'
+            f'<div class="irbi-judul-nilai"><span class="label">Indeks risiko {TAHUN}</span>'
+            f'<b data-hero-isi="nilai">{angka(r["skor"])}</b>'
+            f'<span class="kelas kelas-{kelas.lower()}" data-hero-isi="kelas">{esc(kelas)}</span></div>'
+            f'</div><!--/irbi-judul-ekstra-->')
+
+
 # --------------------------------------------------------------------------- peta statis
 class PembuatPeta:
     def __init__(self, d: Data):
@@ -845,14 +860,17 @@ def tulis_gen(d: Data):
         nama_tabel = r["nama"] if r["provinsi"] in ("ACEH", "DAERAH ISTIMEWA YOGYAKARTA") else f"Provinsi {r['nama']}"
         base = GEN / "provinsi" / r["kode"]
         top = rows[0] if rows else None
-        tulis(base.with_name(f"{r['kode']}-ringkasan.md"), kartu([
+        ringkas = kartu([
             (f"Nilai IRB {TAHUN}", angka(r["skor"]), f"Kelas {r['kelas'].capitalize()}",
              f"kelas-{r['kelas'].lower()}"),
             ("Peringkat provinsi", f"{r['peringkat']} / {len(d.provinsi)}", "urut dari skor tertinggi", ""),
             ("Jumlah kabupaten/kota", str(len(rows)),
              " · ".join(f"{c[k]} {k.lower()}" for k in KELAS if c[k]), ""),
             ("Skor kab/kota tertinggi", angka(top["skor"]) if top else "–", judul(top["kabkota"]) if top else "", ""),
-        ], spec=f"prov:{r['kode']}"))
+        ], spec=f"prov:{r['kode']}")
+        # HTML: blok judul berlambang dengan nilai & kelas provinsi (dipindah ke blok judul oleh scripts/pasca_render.py)
+        ringkas = ringkas.replace('<div class="irbi-kartu-grid"', judul_ekstra_prov(r, len(rows)) + '<div class="irbi-kartu-grid"', 1)
+        tulis(base.with_name(f"{r['kode']}-ringkasan.md"), ringkas)
         baris = [[str(i), k["kabkota"], angka(k["skor"]), k["kelas"]] for i, k in enumerate(rows, 1)]
         tulis(base.with_name(f"{r['kode']}-tabel.md"), tabel(
             f"Tabel nilai indeks risiko {nama_tabel} Tahun {TAHUN}", ["No", "Kabupaten/Kota", "IRB", "Kelas Risiko"],

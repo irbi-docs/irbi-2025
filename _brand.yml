@@ -1,7 +1,8 @@
 # Identitas visual IRBI 2025 (Quarto brand.yml).
-# Dipakai sekaligus oleh HTML (tema terang & gelap), PDF Typst, dan peta statis (scripts/bangun.py).
-# Ubah warna di sini untuk mengganti tampilan seluruh buku; tampilan juga bisa diubah langsung di
-# aplikasi melalui panel Studio tanpa menyentuh berkas ini.
+# Warna utama, huruf, dan warna kelas risiko dipakai PDF buku (Typst), peta statis (scripts/bangun.py),
+# dan HTML. Tampilan web "buku digital" memakai palet hijau di bawah (hijau, hijau-aktif, tautan, jingga,
+# teal-bab, kanvas) lewat assets/css/irbi.scss; tampilan juga bisa diubah langsung di aplikasi melalui
+# panel Studio tanpa menyentuh berkas ini.
 
 meta:
   name:
@@ -19,6 +20,13 @@ color:
     krem: "#F4F1EA"
     tinta: "#1F2D33"
     malam: "#0C171C"
+    # tampilan web (gaya buku digital)
+    hijau: "#153B30"
+    hijau-aktif: "#27896B"
+    tautan: "#16654F"
+    jingga: "#C47A36"
+    teal-bab: "#145968"
+    kanvas: "#F2F6F3"
     # warna kelas risiko (dipakai peta, tabel, lencana, dan PDF)
     tinggi: "#E5242A"
     sedang: "#FFE433"

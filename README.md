@@ -2,8 +2,12 @@
 
 Konversi *BUKU IRBI 2025.pdf* menjadi buku digital dengan [Quarto](https://quarto.org) 1.11:
 
-- **Situs HTML modern:** tema dari `_brand.yml`, mode terang/gelap, navbar, mode baca, grafik interaktif,
-  dan kartu ringkasan beranimasi.
+- **Tampilan buku digital:** bilah atas berlambang IR/BI dengan kotak cari, isi buku berkelompok di bilah kiri
+  (seperti buku cetak), halaman berbentuk kertas dengan blok judul bab, paragraf serif berkolom dengan huruf
+  awal besar, panel "Pada halaman ini", tombol *Sebelumnya*/*Berikutnya*, halaman Sampul (sampul asli),
+  Daftar Isi bernomor halaman cetak, dan Tim Redaksi. Mode terang/gelap, mode baca, grafik interaktif, dan
+  kartu ringkasan tetap ada. Navigasi disusun `scripts/pasca_render.py`, kolom teks oleh
+  `assets/lua/kolom-teks.lua`; keduanya hanya mengubah HTML, PDF buku tidak berubah.
 - **Jelajah Data** (`jelajah.qmd`): filter menurut indeks (multi-bahaya + 11 ancaman), provinsi, kelas
   risiko, rentang skor, dan nama. Filter tersebut menyaring peta Leaflet, tabel, KPI, grafik, dan profil
   wilayah secara bersamaan, dan statusnya tersimpan di URL sehingga bisa dibagikan. Komponen yang sama
@@ -59,6 +63,8 @@ Untuk memasukkan paket ke sumber (agar PDF buku ikut berubah):
 | Daftar bab & navigasi | `_quarto.yml` |
 | Gaya web | `assets/css/irbi.scss` (variabel desain), `irbi-gelap.scss` |
 | Perilaku web | `assets/js/irbi-*.js` (inti, peta, jelajah, grafik, pdf, studio, editor, statis) |
+| Kelompok navigasi, Daftar Isi, nomor halaman cetak | `scripts/pasca_render.py` (`GRUP`, `HAL_BUKU`) |
+| Paragraf berkolom (HTML) | `assets/lua/kolom-teks.lua`; nonaktifkan per halaman dengan `irbi-kolom: false` |
 | Tampilan PDF | `assets/typst/irbi.typ`, `typst-show.typ`, `scripts/templat_peta.typ` |
 
 `_gen/`, `peta/`, dan `assets/data/` dibuat ulang otomatis oleh `scripts/bangun.py` setiap kali render,

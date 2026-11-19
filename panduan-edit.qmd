@@ -1,5 +1,6 @@
 ---
 title: "Panduan Mengedit"
+irbi-kolom: false  # teks petunjuk: satu kolom (lihat assets/lua/kolom-teks.lua)
 ---
 
 Ada dua cara mengubah buku digital ini:
@@ -15,7 +16,7 @@ Buka **Studio** dari tombol di pojok kanan bawah setiap halaman, atau dari halam
 
 | Yang diubah | Caranya | Berlaku pada |
 |:--|:--|:--|
-| Warna tema, warna kelas risiko, huruf, ukuran teks, sudut, kepadatan, animasi | Studio › **Tampilan** | seluruh situs |
+| Warna tema, warna kelas risiko, huruf, ukuran teks, sudut, kepadatan, tata letak teks (kolom buku atau satu kolom), animasi | Studio › **Tampilan** | seluruh situs |
 | Mode terang / gelap / ikut sistem | Studio › Tampilan, atau ikon di bilah atas | seluruh situs |
 | Peta dasar, opasitas, label, batas provinsi | Studio › Tampilan › Peta | semua peta |
 | Teks paragraf, judul, butir daftar | Studio › **Teks** › *Mode edit teks*, lalu klik teksnya | halaman tersebut |
@@ -64,7 +65,8 @@ Buku digital ini dibuat dengan [Quarto](https://quarto.org). Semua isinya berupa
 app/
 ├── _quarto.yml              # daftar bab, navigasi, format HTML & PDF
 ├── _brand.yml               # warna (termasuk warna kelas risiko), huruf, logo
-├── index.qmd                # beranda
+├── index.qmd                # sampul & pengantar edisi digital
+├── tim-redaksi.qmd          # tim redaksi & penerbit
 ├── jelajah.qmd              # Jelajah Data (peta & tabel interaktif)
 ├── studio.qmd               # Studio (data, tampilan, teks)
 ├── ringkasan-eksekutif.qmd, sambutan.qmd, pendahuluan.qmd, metodologi.qmd
@@ -74,10 +76,12 @@ app/
 ├── data/                    # SUMBER DATA: irbi_kabkota.csv, irbi_provinsi.csv, irbi_ancaman.csv, ...
 ├── assets/
 │   ├── css/irbi.scss        # gaya (variabel desain), irbi-gelap.scss untuk mode gelap
+│   ├── lua/kolom-teks.lua   # menata paragraf berkolom seperti halaman buku (hanya HTML)
 │   ├── js/irbi-*.js         # inti, peta, jelajah, grafik, pdf, studio, editor
 │   ├── kustom/              # paket terbit Studio (opsional)
 │   └── typst/               # tampilan PDF buku
 ├── scripts/bangun.py        # dijalankan otomatis sebelum render
+├── scripts/pasca_render.py  # dijalankan otomatis sesudah render: navigasi buku & Daftar Isi
 ├── scripts/terapkan_kustom.py
 ├── _gen/, peta/, assets/data/   # DIBUAT OTOMATIS — jangan diedit
 └── _book/                   # hasil render (situs + PDF)
@@ -101,7 +105,18 @@ juga bisa mengekspor berkas dengan format yang sama persis.
 ### Mengubah warna dan huruf
 
 Ubah `_brand.yml`. Palet `tinggi`, `sedang`, dan `rendah` mengatur warna kelas risiko di semua keluaran:
-situs, PDF buku, dan peta baku.
+situs, PDF buku, dan peta baku. Warna `primary` dan huruf di `typography` dipakai PDF buku. Tampilan web
+memakai palet hijau (`hijau`, `hijau-aktif`, `tautan`, `jingga`, `teal-bab`, `kanvas`) serta huruf Instrument
+Sans (judul), Inter (antarmuka), dan Georgia (paragraf) yang diatur di `assets/css/irbi.scss`.
+
+### Navigasi dan Daftar Isi
+
+Bilah kiri situs mengelompokkan bab seperti buku cetak (Bagian awal, Pengantar, Pendahuluan & metodologi,
+Hasil IRBI, Profil 38 provinsi, 11 jenis ancaman, Referensi & lampiran). Halaman [Daftar Isi](daftar-isi.html)
+dengan nomor halaman buku cetak, tombol *Sebelumnya*/*Berikutnya*, dan baris "halaman buku" di kaki setiap halaman
+dibuat oleh `scripts/pasca_render.py` setelah render. Bila menambah bab baru, daftarkan di `_quarto.yml` lalu
+masukkan ke salah satu kelompok di `GRUP` pada skrip itu (bila tidak, bab baru otomatis masuk ke kelompok
+*Referensi & lampiran*). PDF buku tetap mengikuti urutan bab di `_quarto.yml`.
 
 ### Membangun ulang
 

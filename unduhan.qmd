@@ -1,5 +1,6 @@
 ---
 title: "Unduhan"
+irbi-kolom: false  # teks petunjuk: satu kolom (lihat assets/lua/kolom-teks.lua)
 ---
 
 ::: {.content-visible when-format="html"}

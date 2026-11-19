@@ -101,6 +101,22 @@
       a.classList.toggle('diubah', !!v.diubah);
     });
   }
+  /** Blok judul provinsi (lambang, jumlah kab/kota, nilai & kelas) mengikuti data efektif, termasuk editan Studio. */
+  function perbaruiJudulEkstra() {
+    document.querySelectorAll('[data-hero^="prov:"]').forEach(function (el) {
+      var kode = el.getAttribute('data-hero').split(':')[1];
+      var v = I.nilai('provinsi', kode);
+      if (!v) return;
+      var isi = function (k) { return el.querySelector('[data-hero-isi="' + k + '"]'); };
+      var n = isi('nilai'), k = isi('kelas'), j = isi('jumlah');
+      if (n) {
+        n.textContent = I.fmt(v.skor);
+        if (v.diubah) n.appendChild(I.el('span', { class: 'irbi-tanda-ubah', title: 'Nilai diubah di Studio', text: '*' }));
+      }
+      if (k) { k.className = 'kelas kelas-' + v.kelas.toLowerCase(); k.textContent = I.LABEL[v.kelas]; }
+      if (j) j.textContent = I.baris('irbi', { prov: kode }).length;
+    });
+  }
   function perbaruiGridAncaman() {
     document.querySelectorAll('.irbi-ancaman-kartu[data-slug]').forEach(function (a) {
       var rows = I.baris(a.dataset.slug).filter(function (r) { return r.dinilai; });
@@ -159,6 +175,7 @@
     grids.forEach(function (g) { I.saatTerlihat(g, function () { renderKartu(g, true); g.dataset.siap = '1'; }); });
     perbaruiGridProvinsi();
     perbaruiGridAncaman();
+    perbaruiJudulEkstra();
     document.querySelectorAll('table.irbi-tabel:not([data-diadopsi])').forEach(function (t) {
       if (!t.closest('.irbi-jelajah, .irbi-studio-data')) tingkatkanTabel(t);
     });
@@ -167,6 +184,7 @@
       grids.forEach(function (g) { if (g.dataset.siap) renderKartu(g, false); });
       perbaruiGridProvinsi();
       perbaruiGridAncaman();
+      perbaruiJudulEkstra();
     });
   }
 
