@@ -410,7 +410,7 @@ nav.page-navigation.irbi-pager {
 #quarto-document-content .irbi-di ol { padding-left: 0; }
 #quarto-document-content h2.irbi-di-judul { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 1.02rem; font-weight: 700; letter-spacing: -.02em;
   color: var(--irbi-tautan-tua); border-top: 0; border-bottom: 2px solid var(--irbi-bingkai-bab); padding: 0 0 .45rem; margin: 0 0 .35rem; break-after: avoid;
-  a { color: inherit; text-decoration: none; &:hover { text-decoration: underline; } }
+  a { color: inherit; font-weight: inherit; text-decoration: none; &:hover { text-decoration: underline; } }
   span { font-family: var(--irbi-font-isi); font-size: .7rem; font-weight: 700; color: var(--irbi-tautan); letter-spacing: 0; } }
 .irbi-di ol { list-style: none; margin: 0; padding: 0; }
 #quarto-document-content .irbi-di li { margin: 0; break-inside: avoid; border-bottom: 1px solid var(--irbi-garis); }
