@@ -44,7 +44,7 @@ hosting statis.
 
 | Studio | Fungsi |
 |---|---|
-| Tampilan | tema & warna, palet kelas (termasuk ramah buta warna), huruf, ukuran teks, sudut, kepadatan, mode gelap, peta dasar, animasi |
+| Tampilan | pratinjau langsung; gaya baca siap pakai (Seperti buku, Nyaman dibaca, Kontras tinggi, Ringkas, Klasik); tema & warna (kode hex, cek kontras, acak/aksen serasi); palet kelas (termasuk ramah buta warna); nuansa kertas (putih, krem, sepia), spasi baris, kolom, perataan, kontras teks, huruf awal besar; huruf judul/paragraf/antarmuka & ukuran teks; kepala berwarna, kepadatan, sudut, animasi; mode gelap; peta dasar. Setiap perubahan bisa diurungkan (Ctrl/⌘+Z), dibandingkan dengan bawaan (tahan **Bandingkan**), disimpan sebagai *gaya saya*, atau diekspor/impor sebagai berkas tampilan |
 | Teks | mode edit langsung: klik paragraf atau judul di halaman mana pun |
 | Data | lembar kerja skor & ambang (edit sel, tempel dari Excel, urungkan/ulangi, impor/ekspor CSV) |
 | Simpan | ekspor/impor paket `.json`, atau terbitkan `irbi-kustom.js` untuk semua pembaca |

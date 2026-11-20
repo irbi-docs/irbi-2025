@@ -4,14 +4,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Instrument+Sans:wght@400..700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
 <script>
-/* IRBI 2025 — pemuat. (1) Terapkan gaya Studio yang tersimpan sebelum halaman tampil (mencegah kedipan warna).
-   (2) Muat paket kustomisasi terbit (assets/kustom/irbi-kustom.js, opsional) lalu modul inti.
-   Bekerja juga saat situs dibuka langsung dari berkas (tanpa server). */
-window.IRBI_VERSI = '1028f8db2c';
+/* IRBI 2025 — pemuat. (1) Terapkan gaya Studio yang tersimpan (warna, huruf, dan atribut tata letak seperti
+   nuansa kertas & kolom) sebelum halaman tampil, agar tidak berkedip. (2) Muat paket kustomisasi terbit
+   (assets/kustom/irbi-kustom.js, opsional) lalu modul inti. Bekerja juga saat situs dibuka langsung dari berkas. */
+window.IRBI_VERSI = '462fb9c069';
 (function () {
   try {
     var css = localStorage.getItem('irbi2025:gaya');
     if (css) { var st = document.createElement('style'); st.id = 'irbi-gaya-kustom'; st.textContent = css; document.head.appendChild(st); }
+    var atr = JSON.parse(localStorage.getItem('irbi2025:atribut') || 'null');
+    if (atr && typeof atr === 'object') {
+      for (var a in atr) {
+        if (/^data-irbi-[a-z]+$/.test(a) && /^[a-z]+$/.test(String(atr[a]))) document.documentElement.setAttribute(a, atr[a]);
+      }
+    }
   } catch (e) { /* penyimpanan peramban tidak tersedia */ }
   function muat() {
     var m = document.querySelector('meta[name="quarto:offset"]');

@@ -12,7 +12,7 @@ peramban Anda dan bisa dipindahkan atau diterbitkan kapan saja.
 ```{=html}
 <nav class="irbi-pintasan" aria-label="Bagian Studio">
   <a href="#studio-data"><i class="bi bi-grid-3x3-gap"></i><b>Data</b><span>Lembar kerja skor &amp; ambang kelas: edit sel, tempel dari Excel, urungkan, impor/ekspor CSV.</span></a>
-  <a href="#" data-irbi-buka-studio="tampilan"><i class="bi bi-brush"></i><b>Tampilan</b><span>Tema, warna kelas, huruf, ukuran teks, mode gelap, dan peta dasar.</span></a>
+  <a href="#" data-irbi-buka-studio="tampilan"><i class="bi bi-brush"></i><b>Tampilan</b><span>Gaya baca siap pakai, tema &amp; warna, nuansa kertas, huruf, mode gelap, dan peta. Bisa diurungkan &amp; dibandingkan.</span></a>
   <a href="#" data-irbi-buka-studio="teks"><i class="bi bi-type"></i><b>Teks</b><span>Edit paragraf dan judul langsung di halaman mana pun.</span></a>
   <a href="#simpan-dan-bagikan"><i class="bi bi-share"></i><b>Simpan &amp; bagikan</b><span>Ekspor/impor paket, atau terbitkan untuk semua pembaca.</span></a>
 </nav>

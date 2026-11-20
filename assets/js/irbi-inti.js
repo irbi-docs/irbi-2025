@@ -380,8 +380,21 @@
     return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
   }
   function terang(hex) { var c = hexKeRgb(hex); if (!c) return false; return (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) > 160; }
-  I.warnaUtil = { campur: campur, hexKeRgb: hexKeRgb, terang: terang };
+  function luminans(hex) {
+    var c = hexKeRgb(hex); if (!c) return 0;
+    var f = c.map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * f[0] + 0.7152 * f[1] + 0.0722 * f[2];
+  }
+  /** Rasio kontras WCAG dua warna hex (1–21; teks biasa butuh ≥ 4,5). */
+  function kontras(a, b) { var x = luminans(a), y = luminans(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  /** '#abc', 'AABBCC', '#aabbcc' → '#AABBCC'; nilai lain → null. */
+  function warnaSah(v) {
+    var c = typeof v === 'string' ? hexKeRgb(v) : null;
+    return c ? '#' + c.map(function (x) { return x.toString(16).padStart(2, '0'); }).join('').toUpperCase() : null;
+  }
+  I.warnaUtil = { campur: campur, hexKeRgb: hexKeRgb, terang: terang, kontras: kontras, sah: warnaSah, hsl: hsl, hexKeHsl: hexKeHsl };
   var SERIF = { 'Georgia': 1, 'Source Serif 4': 1, 'Merriweather': 1, 'Lora': 1 };
+  I.FONT_SERIF = SERIF;
   function tumpukanFont(f, cadangan) {
     if (!f || f === 'Sistem') return 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
     return '"' + f + '", ' + (SERIF[f] ? 'Georgia, "Source Serif 4", serif' : cadangan);
@@ -401,14 +414,62 @@
     var f = function (n) { var k = (n + h / 30) % 12, a = s * Math.min(l, 1 - l); return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)))).toString(16).padStart(2, '0'); };
     return '#' + f(0) + f(8) + f(4);
   }
+  /** Pengaturan yang dipasang sebagai atribut <html> (aturan CSS-nya di assets/css/irbi.scss):
+   *  kunci → [atribut, bawaan, pilihan sah]. Nilai benar/salah ditulis "nyala"/"mati".
+   *  Salinannya disimpan di localStorage agar kepala.html memasangnya sebelum halaman tampil (tanpa kedip). */
+  var ATRIBUT = {
+    kepadatan: ['data-irbi-kepadatan', 'lega', ['lega', 'ringkas']],
+    kolom: ['data-irbi-kolom', 'buku', ['buku', 'satu']],
+    kertas: ['data-irbi-kertas', 'bawaan', ['bawaan', 'putih', 'krem', 'sepia']],
+    spasi: ['data-irbi-spasi', 'normal', ['rapat', 'normal', 'lega']],
+    rata: ['data-irbi-rata', 'kiri', ['kiri', 'rata']],
+    kontras: ['data-irbi-kontras', 'normal', ['normal', 'tinggi']],
+    kepala: ['data-irbi-kepala', 'terang', ['terang', 'warna']],
+    animasi: ['data-irbi-animasi', true, [true, false]],
+    hurufAwal: ['data-irbi-hurufawal', true, [true, false]]
+  };
+  var KUNCI_ATRIBUT = 'irbi2025:atribut';
+  var DASAR_PETA = ['otomatis', 'abu', 'gelap', 'osm', 'citra', 'kosong'];
+  function ada(v) { return v !== undefined && v !== null && v !== ''; }
+  function dalam(v, min, maks) { v = +v; return isFinite(v) ? Math.min(maks, Math.max(min, v)) : null; }
+  /** Salinan pengaturan tampilan yang sudah diperiksa: hanya kunci yang dikenal dengan nilai sah.
+   *  Semua sumber (lokal, paket impor, paket terbit) lewat sini, jadi tidak ada teks bebas yang masuk ke CSS. */
+  function bersihTampilan(t) {
+    t = t && typeof t === 'object' ? t : {};
+    var o = {};
+    ['primer', 'aksen'].forEach(function (k) { var w = warnaSah(t[k]); if (w) o[k] = w; });
+    if (t.kelas && typeof t.kelas === 'object') {
+      var kl = {};
+      I.KELAS.forEach(function (k) { var w = warnaSah(t.kelas[k]); if (w) kl[k] = w; });
+      if (Object.keys(kl).length) o.kelas = kl;
+    }
+    ['fontJudul', 'fontIsi', 'fontUI'].forEach(function (k) {
+      if (typeof t[k] === 'string' && Object.prototype.hasOwnProperty.call(FONT, t[k])) o[k] = t[k];
+    });
+    if (ada(t.ukuran) && dalam(t.ukuran, 12, 24) !== null) o.ukuran = Math.round(dalam(t.ukuran, 12, 24));
+    if (ada(t.radius) && dalam(t.radius, 0, 24) !== null) o.radius = Math.round(dalam(t.radius, 0, 24));
+    Object.keys(ATRIBUT).forEach(function (k) { if (ATRIBUT[k][2].indexOf(t[k]) >= 0) o[k] = t[k]; });
+    if (t.peta && typeof t.peta === 'object') {
+      var p = {}, q = t.peta;
+      if (DASAR_PETA.indexOf(q.dasar) >= 0) p.dasar = q.dasar;
+      if (ada(q.opasitas) && dalam(q.opasitas, 0.1, 1) !== null) p.opasitas = Math.round(dalam(q.opasitas, 0.1, 1) * 100) / 100;
+      if (typeof q.label === 'boolean') p.label = q.label;
+      if (typeof q.batas === 'boolean') p.batas = q.batas;
+      if (Object.keys(p).length) o.peta = p;
+    }
+    return o;
+  }
   I.tampilan = {
-    efektif: function () { return S.efektif().tampilan; },
+    ATRIBUT: ATRIBUT,
+    bersih: bersihTampilan,
+    efektif: function () { return bersihTampilan(S.efektif().tampilan); },
     nilai: function (jalur, bawaan) {
       var o = this.efektif();
       jalur.split('.').forEach(function (k) { o = o && o[k]; });
       return (o === undefined || o === null || o === '') ? bawaan : o;
     },
     css: function (t) {
+      t = bersihTampilan(t);
       var r = [], g = [];
       var w = t.primer && hexKeHsl(t.primer);
       if (w) {   // warna turunan (aktif, tautan, judul, blok judul bab) dari rona warna utama
@@ -436,6 +497,7 @@
       if (k.RENDAH) r.push('--irbi-rendah:' + k.RENDAH, '--irbi-rendah-teks:' + (terang(k.RENDAH) ? '#102010' : '#ffffff'));
       if (t.fontJudul) r.push('--irbi-font-judul:' + tumpukanFont(t.fontJudul, 'system-ui, sans-serif'));
       if (t.fontIsi) r.push('--irbi-font-baca:' + tumpukanFont(t.fontIsi, 'system-ui, sans-serif'));
+      if (t.fontUI) r.push('--irbi-font-isi:' + tumpukanFont(t.fontUI, 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif'));
       if (t.ukuran) r.push('--irbi-ukuran:' + (+t.ukuran) + 'px');
       if (t.radius !== undefined && t.radius !== null && t.radius !== '') r.push('--irbi-radius:' + (+t.radius) + 'px', '--irbi-radius-kecil:' + Math.round(+t.radius * 0.55) + 'px');
       var css = '';
@@ -450,11 +512,15 @@
       if (!st) { st = I.el('style', { id: 'irbi-gaya-kustom' }); document.head.appendChild(st); }
       st.textContent = css;
       try { css ? localStorage.setItem(KUNCI_GAYA, css) : localStorage.removeItem(KUNCI_GAYA); } catch (e) { /* abaikan */ }
-      var html = document.documentElement;
-      html.setAttribute('data-irbi-kepadatan', t.kepadatan || 'lega');
-      html.setAttribute('data-irbi-animasi', t.animasi === false ? 'mati' : 'nyala');
-      html.setAttribute('data-irbi-kolom', t.kolom === 'satu' ? 'satu' : 'buku');
-      [t.fontJudul, t.fontIsi].forEach(function (f) {
+      var html = document.documentElement, atr = {};
+      Object.keys(ATRIBUT).forEach(function (k) {
+        var a = ATRIBUT[k], v = t[k] === undefined ? a[1] : t[k];
+        var isi = typeof a[1] === 'boolean' ? (v === false ? 'mati' : 'nyala') : v;
+        html.setAttribute(a[0], isi);
+        atr[a[0]] = isi;
+      });
+      try { localStorage.setItem(KUNCI_ATRIBUT, JSON.stringify(atr)); } catch (e) { /* abaikan */ }
+      [t.fontJudul, t.fontIsi, t.fontUI].forEach(function (f) {
         if (f && FONT[f] && !document.querySelector('link[data-irbi-font="' + f + '"]')) {
           document.head.appendChild(I.el('link', { rel: 'stylesheet', 'data-irbi-font': f,
             href: 'https://fonts.googleapis.com/css2?family=' + FONT[f] + '&display=swap' }));
@@ -596,9 +662,27 @@
     new MutationObserver(cek).observe(document.body, { attributes: true, attributeFilter: ['class'] });
     cek();
   }
+  var KUNCI_MODE = 'quarto-color-scheme';      // kunci pilihan mode milik Quarto (tidak dipakai Quarto di file://)
+  var modeFile = null;                          // pilihan mode saat situs dibuka langsung dari berkas
+  function sistemGelap() { return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); }
   I.aturTema = function (mode) {      // 'terang' | 'gelap' | 'sistem'
-    var ingin = mode === 'sistem' ? window.matchMedia('(prefers-color-scheme: dark)').matches : mode === 'gelap';
+    var ingin = mode === 'sistem' ? sistemGelap() : mode === 'gelap';
     if (ingin !== I.gelap() && typeof window.quartoToggleColorScheme === 'function') window.quartoToggleColorScheme();
+    // Pengalih Quarto selalu menyimpan pilihan; untuk "sistem" pilihan itu dihapus SESUDAH beralih
+    // agar halaman berikutnya kembali mengikuti pengaturan perangkat.
+    if (mode === 'sistem') { modeFile = null; try { localStorage.removeItem(KUNCI_MODE); } catch (e) { /* abaikan */ } }
+    else modeFile = mode;
+  };
+  /** Mode yang dipilih pembaca: 'terang' | 'gelap' | 'sistem' (mengikuti perangkat). */
+  I.modeWarna = function () {
+    var g = I.gelap();
+    if (location.protocol === 'file:') {
+      if (modeFile && (modeFile === 'gelap') === g) return modeFile;
+      return g === sistemGelap() ? 'sistem' : (g ? 'gelap' : 'terang');
+    }
+    var simpan = null;
+    try { simpan = localStorage.getItem(KUNCI_MODE); } catch (e) { /* abaikan */ }
+    return simpan ? (g ? 'gelap' : 'terang') : 'sistem';
   };
 
   // ================================================================== antarmuka umum

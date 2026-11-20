@@ -16,11 +16,17 @@ Buka **Studio** dari tombol di pojok kanan bawah setiap halaman, atau dari halam
 
 | Yang diubah | Caranya | Berlaku pada |
 |:--|:--|:--|
-| Warna tema, warna kelas risiko, huruf, ukuran teks, sudut, kepadatan, tata letak teks (kolom buku atau satu kolom), animasi | Studio › **Tampilan** | seluruh situs |
+| Gaya baca siap pakai, warna tema, warna kelas risiko, nuansa kertas, spasi baris, kolom, perataan, kontras teks, huruf, ukuran teks, kepala berwarna, sudut, kepadatan, animasi | Studio › **Tampilan** | seluruh situs |
 | Mode terang / gelap / ikut sistem | Studio › Tampilan, atau ikon di bilah atas | seluruh situs |
 | Peta dasar, opasitas, label, batas provinsi | Studio › Tampilan › Peta | semua peta |
 | Teks paragraf, judul, butir daftar | Studio › **Teks** › *Mode edit teks*, lalu klik teksnya | halaman tersebut |
 | Skor, kelas, ambang kelas | halaman [Studio](studio.qmd) › Studio Data, atau Studio › **Data** › Impor CSV | peta, tabel, kartu, grafik, CSV, dan PDF sesuai filter |
+
+Di tab **Tampilan**, pratinjau di bagian atas langsung menunjukkan hasil setiap pengaturan. Tombol panah
+melingkar di samping pengaturan yang diubah mengembalikan nilai bawaannya. Tombol urungkan dan ulangi di
+kaki panel (atau Ctrl+Z, Cmd+Z di Mac) membatalkan perubahan, dan tombol **Bandingkan** yang ditahan
+memperlihatkan tampilan bawaan buku. Tampilan yang disukai bisa disimpan sebagai *gaya saya* atau diekspor
+menjadi berkas `.json` untuk perangkat lain.
 
 Semua perubahan tersimpan otomatis di peramban Anda. Untuk memindahkan atau membagikannya, buka
 Studio › **Simpan**:
